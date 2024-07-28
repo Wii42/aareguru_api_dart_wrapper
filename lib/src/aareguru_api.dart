@@ -1,4 +1,12 @@
+import 'dart:convert';
+
+import 'package:aareguru_api/src/response_objects/widget.dart';
+
+import 'response_objects/current/current.dart';
+import 'response_objects/today.dart';
 import 'package:http/http.dart' as http;
+
+import 'response_objects/city.dart';
 
 /// Wrapper for Aare.guru API v2018 (current)
 class AareGuruApi {
@@ -27,7 +35,7 @@ class AareGuruApi {
     if (values.isNotEmpty) {
       parameters['values'] = values.join(',');
     }
-    http.Response response = await http.get(Uri.http(host, path, parameters));
+    http.Response response = await http.get(Uri.https(host, path, parameters));
     if (response.statusCode != 200) {
       throw Exception(
           'Failed to fetch data from Aare.guru API, status code: ${response.statusCode} ${response.reasonPhrase}');
@@ -40,8 +48,11 @@ class AareGuruApi {
     return _baseRequest('cities', values: values ?? []);
   }
 
-  Future<String> cities() async {
-    return _cities();
+  Future<List<City>> cities() async {
+    String response = await _cities();
+    List<dynamic> cities = jsonDecode(response);
+
+    return cities.map((city) => City.fromJson(city)).toList();
   }
 
   Future<List<String>> citiesValues(List<String> values) async {
@@ -57,8 +68,10 @@ class AareGuruApi {
         parameters: {'city': city}, values: values ?? []);
   }
 
-  Future<String> today(String city) async {
-    return _today(city);
+  Future<Today> today(String city) async {
+    String response = await _today(city);
+    Today today = Today.fromJson(jsonDecode(response));
+    return today;
   }
 
   Future<List<String>> todayValues(String city, List<String> values) async {
@@ -74,8 +87,10 @@ class AareGuruApi {
         parameters: {'city': city}, values: values ?? []);
   }
 
-  Future<String> current(String city) async {
-    return _current(city);
+  Future<Current> current(String city) async {
+    String response = await _current(city);
+    Current current = Current.fromJson(jsonDecode(response));
+    return current;
   }
 
   Future<List<String>> currentValues(String city, List<String> values) async {
@@ -90,8 +105,9 @@ class AareGuruApi {
     return _baseRequest('widget', values: values ?? []);
   }
 
-  Future<String> widget() async {
-    return _widget();
+  Future<WidgetData> widget() async {
+    String response = await _widget();
+    return WidgetData.fromJson(jsonDecode(response));
   }
 
   Future<List<String>> widgetValues(List<String> values) async {
@@ -105,9 +121,4 @@ class AareGuruApi {
   List<String> _parseValues(String data) {
     return data.split('\n');
   }
-}
-
-void main() async {
-  AareGuruApi api = AareGuruApi(appName: 'Wi42_test', appVersion: '0.1');
-  print(await api.cities());
 }
