@@ -4,7 +4,7 @@ import 'request_with_city.dart';
 
 class CurrentRequest extends RequestWithCity<Current> {
   @override
-  final String endpoint = 'today';
+  final String endpoint = 'current';
 
   CurrentRequest(super.host, super.apiPath,
       {required super.city, super.appName, super.appVersion});
