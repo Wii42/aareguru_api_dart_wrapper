@@ -15,9 +15,14 @@ class Weather {
 
   factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
-      current: json['current'] != null ? CurrentWeather.fromJson(json['current']) : null,
-      today: json['today'] != null ? WeatherToday.fromJson(json['today']) : null,
-      forecast: json['forecast'] != null ? WeatherForecast.listFromJson(json['forecast']) : null,
+      current: json['current'] != null
+          ? CurrentWeather.fromJson(json['current'])
+          : null,
+      today:
+          json['today'] != null ? WeatherToday.fromJson(json['today']) : null,
+      forecast: json['forecast'] != null
+          ? WeatherForecast.listFromJson(json['forecast'])
+          : null,
     );
   }
 

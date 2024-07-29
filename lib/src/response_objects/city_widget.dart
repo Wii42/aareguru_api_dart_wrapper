@@ -42,7 +42,7 @@ class CityWidget {
       flowText: json['flow_text'].toString(),
       flowDangerLevel: int.tryParse(json['flow_gefahrenstufe'].toString()),
       waterTemperatureForecast2h:
-      double.tryParse(json['forecast2h'].toString()),
+          double.tryParse(json['forecast2h'].toString()),
       airTemperature: double.tryParse(json['tt'].toString()),
       sunTotal: json['suntotal'].toString(),
     );

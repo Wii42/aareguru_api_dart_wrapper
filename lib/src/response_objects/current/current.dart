@@ -1,12 +1,10 @@
 import 'notification.dart';
+import 'river.dart';
+import 'river_at_time.dart';
 import 'sun.dart';
 import 'swimming_channel.dart';
-import 'weather_at_time.dart';
-
 import 'weather.dart';
-
-import 'river_at_time.dart';
-import 'river.dart';
+import 'weather_at_time.dart';
 
 class Current {
   River? aare;

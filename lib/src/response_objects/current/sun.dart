@@ -1,5 +1,3 @@
-import 'package:aareguru_api/src/date_time_seconds_parser.dart';
-
 import 'sun_location.dart';
 import 'sun_per_day.dart';
 

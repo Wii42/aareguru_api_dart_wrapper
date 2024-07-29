@@ -3,8 +3,8 @@ import 'package:aareguru_api/src/requests/today_request.dart';
 import 'package:aareguru_api/src/requests/widget_request.dart';
 import 'package:aareguru_api/src/response_objects/widget.dart';
 
-import 'coordinate.dart';
 import '../date_time_seconds_parser.dart';
+import 'coordinate.dart';
 import 'current/current.dart';
 import 'today.dart';
 

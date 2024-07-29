@@ -18,9 +18,7 @@ class ScaleEntry {
   }
 
   static List<ScaleEntry> listFromJson(List<dynamic> json) {
-    return json
-            .map((value) => ScaleEntry.fromJson(value))
-            .toList();
+    return json.map((value) => ScaleEntry.fromJson(value)).toList();
   }
 
   @override
