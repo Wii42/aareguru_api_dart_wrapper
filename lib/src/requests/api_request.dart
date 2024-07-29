@@ -1,9 +1,5 @@
 import 'dart:convert';
 
-import 'package:aareguru_api/src/response_objects/city.dart';
-import 'package:aareguru_api/src/response_objects/current/current.dart';
-import 'package:aareguru_api/src/response_objects/today.dart';
-import 'package:aareguru_api/src/response_objects/widget.dart';
 import 'package:http/http.dart' as http;
 
 /// Abstract class for the API request, created to cut down on code duplication
@@ -83,57 +79,4 @@ abstract class ApiRequest<T extends Object> {
   List<String> _parseValues(String data) {
     return data.split('\n');
   }
-}
-
-class CitiesRequest extends ApiRequest<List<City>> {
-  @override
-  final String endpoint = 'cities';
-
-  CitiesRequest(super.host, super.apiPath, {super.appName, super.appVersion});
-
-  @override
-  List<City> parseResponse(dynamic json) => City.fromJsonList(json);
-}
-
-abstract class RequestWithCity<T extends Object> extends ApiRequest<T> {
-  final String city;
-
-  RequestWithCity(super.host, super.apiPath,
-      {required this.city, super.appName, super.appVersion});
-
-  @override
-  Future<String> formRequest([List<String>? values]) =>
-      baseRequest(parameters: {'city': city}, values: values ?? []);
-}
-
-class TodayRequest extends RequestWithCity<Today> {
-  @override
-  final String endpoint = 'today';
-
-  TodayRequest(super.host, super.apiPath,
-      {required super.city, super.appName, super.appVersion});
-
-  @override
-  Today parseResponse(dynamic json) => Today.fromJson(json);
-}
-
-class CurrentRequest extends RequestWithCity<Current> {
-  @override
-  final String endpoint = 'today';
-
-  CurrentRequest(super.host, super.apiPath,
-      {required super.city, super.appName, super.appVersion});
-
-  @override
-  Current parseResponse(dynamic json) => Current.fromJson(json);
-}
-
-class WidgetRequest extends ApiRequest<WidgetData> {
-  @override
-  final String endpoint = 'widget';
-
-  WidgetRequest(super.host, super.apiPath, {super.appName, super.appVersion});
-
-  @override
-  WidgetData parseResponse(dynamic json) => WidgetData.fromJson(json);
 }
