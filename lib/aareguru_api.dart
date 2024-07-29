@@ -11,5 +11,5 @@ export 'src/aareguru_api.dart';
 
 void main() async {
   AareGuruApi api = AareGuruApi(appName: 'Wi42_test', appVersion: '0.1');
-  print(await api.widget());
+  print(await api.cities());
 }

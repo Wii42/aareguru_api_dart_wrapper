@@ -56,6 +56,10 @@ class City {
     );
   }
 
+  static fromJsonList(List<dynamic> json) {
+    return json.map((value) => City.fromJson(value)).toList();
+  }
+
   @override
   String toString() {
     return 'City{city: $city, name: $name, longName: $longName, coordinates: $coordinates, aareTemperature: $aareTemperature, aarePreciseTemperature: $aarePreciceTemperature, weatherSymbol: $weatherSymbol, dailyMinimumAirTemperature: $dailyMinimumAirTemperature, dailyMaximumAirTemperature: $dailyMaximumAirTemperature, forecast: $forecast, time: $time, url: $url, today: $today, widget: $widget}';
