@@ -10,7 +10,7 @@ import 'response_objects/widget.dart';
 /// Wrapper for Aare.guru API v2018 (current)
 /// [OpenAPI documentation](https://aareguru.existenz.ch/openapi/)
 /// [Aare.guru API homepage](https://aareguru.existenz.ch/)
-/// If [values] shall be used, use the method ending with 'Values'  for example [citiesValues].
+/// If the [values] parameter shall be used, use the method ending with 'Values'  for example [citiesValues].
 class AareGuruApi {
   /// Host of the API
   static const String host = 'aareguru.existenz.ch';

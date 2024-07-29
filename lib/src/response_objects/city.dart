@@ -1,5 +1,12 @@
+import 'package:aareguru_api/src/requests/current_request.dart';
+import 'package:aareguru_api/src/requests/today_request.dart';
+import 'package:aareguru_api/src/requests/widget_request.dart';
+import 'package:aareguru_api/src/response_objects/widget.dart';
+
 import 'coordinate.dart';
 import '../date_time_seconds_parser.dart';
+import 'current/current.dart';
+import 'today.dart';
 
 class City {
   String? city;
@@ -59,6 +66,16 @@ class City {
   static fromJsonList(List<dynamic> json) {
     return json.map((value) => City.fromJson(value)).toList();
   }
+
+  Future<Current>? getCurrent() =>
+      url != null ? CurrentRequest('_', '_', city: '_').urlRequest(url!) : null;
+
+  Future<Today>? getToday() => today != null
+      ? TodayRequest('_', '_', city: '_').urlRequest(today!)
+      : null;
+
+  Future<WidgetData>? getWidget() =>
+      widget != null ? WidgetRequest('_', '_').urlRequest(widget!) : null;
 
   @override
   String toString() {

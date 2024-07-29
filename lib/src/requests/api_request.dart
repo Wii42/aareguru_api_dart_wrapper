@@ -79,4 +79,13 @@ abstract class ApiRequest<T extends Object> {
   List<String> _parseValues(String data) {
     return data.split('\n');
   }
+
+  /// Same parsed return as [request] but from the given [url].
+  /// Can be used if the exact url for the request is provided externally.
+  /// Schuld not be used if [values] are specified.
+  Future<T> urlRequest(Uri url) async {
+    String response = await sendRequest(url);
+    dynamic json = jsonDecode(response);
+    return parseResponse(json);
+  }
 }

@@ -3,6 +3,8 @@
 /// More dartdocs go here.
 library;
 
+import 'package:aareguru_api/src/response_objects/city.dart';
+
 import 'aareguru_api.dart';
 
 export 'src/aareguru_api.dart';
@@ -11,5 +13,6 @@ export 'src/aareguru_api.dart';
 
 void main() async {
   AareGuruApi api = AareGuruApi(appName: 'Wi42_test', appVersion: '0.1');
-  print(await api.cities());
+  List<City> cities = await api.cities();
+  print(await api.today('brienz'));
 }

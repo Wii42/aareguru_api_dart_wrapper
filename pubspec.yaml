@@ -1,12 +1,11 @@
 name: aareguru_api
-description: A starting point for Dart libraries or applications.
-version: 0.0.1
-# repository: https://github.com/my_org/my_repo
+description: A wrapper for the Aare.guru API
+version: 0.0.2
+repository: https://github.com/Wii42/aareguru_api_dart_wrapper
 
 environment:
   sdk: ^3.4.3
 
-# Add regular dependencies here.
 dependencies:
     http: ^1.2.2
 
