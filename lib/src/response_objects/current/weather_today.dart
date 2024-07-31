@@ -1,3 +1,4 @@
+import '../json_parser.dart';
 import 'time_of_day_weather.dart';
 
 class WeatherToday {
@@ -12,11 +13,13 @@ class WeatherToday {
   });
 
   factory WeatherToday.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
+    TimeOfDayWeather parseTimeOfDayWeather(dynamic e) =>
+        TimeOfDayWeather.fromJson(e);
     return WeatherToday(
-      morning: json['v'] != null ? TimeOfDayWeather.fromJson(json['v']) : null,
-      afternoon:
-          json['n'] != null ? TimeOfDayWeather.fromJson(json['n']) : null,
-      evening: json['a'] != null ? TimeOfDayWeather.fromJson(json['a']) : null,
+      morning: p.parseObject(json['v'], parseTimeOfDayWeather),
+      afternoon: p.parseObject(json['n'], parseTimeOfDayWeather),
+      evening: p.parseObject(json['a'], parseTimeOfDayWeather),
     );
   }
 

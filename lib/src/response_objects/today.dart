@@ -1,4 +1,4 @@
-import 'package:aareguru_api/src/date_time_seconds_parser.dart';
+import 'json_parser.dart';
 
 class Today {
   double? aareTemperature; // in API "aare"
@@ -20,15 +20,15 @@ class Today {
   });
 
   factory Today.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return Today(
-      aareTemperature: double.tryParse(json['aare'].toString()),
-      aarePreciceTemperature: double.tryParse(json['aare_prec'].toString()),
+      aareTemperature: p.parseDouble(json['aare']),
+      aarePreciceTemperature: p.parseDouble(json['aare_prec']),
       text: json['text'].toString(),
       textShort: json['text_short'].toString(),
-      time: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.parse(json['time'].toString())),
-      name: json['name'].toString(),
-      longName: json['longname'].toString(),
+      time: p.parseDateTime(json['time']),
+      name: p.parseString(json['name']),
+      longName: p.parseString(json['longname']),
     );
   }
 

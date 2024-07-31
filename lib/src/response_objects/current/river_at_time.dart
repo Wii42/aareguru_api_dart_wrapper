@@ -1,4 +1,4 @@
-import 'package:aareguru_api/src/date_time_seconds_parser.dart';
+import '../json_parser.dart';
 
 class RiverAtTime {
   DateTime? timestamp;
@@ -12,13 +12,11 @@ class RiverAtTime {
   });
 
   factory RiverAtTime.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return RiverAtTime(
-      timestamp: json['timestamp'] != null
-          ? DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-              int.tryParse(json['timestamp'].toString()))
-          : null,
-      flow: double.tryParse(json['flow'].toString()),
-      temperature: double.tryParse(json['temperature'].toString()),
+      timestamp: p.parseDateTime(json['timestamp']),
+      flow: p.parseDouble(json['flow']),
+      temperature: p.parseDouble(json['temperature']),
     );
   }
 

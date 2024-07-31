@@ -1,3 +1,4 @@
+import '../json_parser.dart';
 import 'notification.dart';
 import 'river.dart';
 import 'river_at_time.dart';
@@ -26,23 +27,20 @@ class Current {
   });
 
   factory Current.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return Current(
-      aare: json['aare'] != null ? River.fromJson(json['aare']) : null,
-      aarePast: json['aarepast'] != null
-          ? RiverAtTime.listFromJson(json['aarepast'])
-          : null,
+      aare: p.parseObject(json['aare'], (dynamic e) => River.fromJson(e)),
+      aarePast:
+          p.parseList(json['aarepast'], (dynamic e) => RiverAtTime.fromJson(e)),
       weather:
-          json['weather'] != null ? Weather.fromJson(json['weather']) : null,
-      weatherPast: json['weatherpast'] != null
-          ? WeatherAtTime.listFromJson(json['weatherpast'])
-          : null,
-      sun: json['sun'] != null ? Sun.fromJson(json['sun']) : null,
-      bueber: json['bueber'] != null
-          ? SwimmingChannel.fromJson(json['bueber'])
-          : null,
-      notification: json['notification'] != null
-          ? Notification.fromJson(json['notification'])
-          : null,
+          p.parseObject(json['weather'], (dynamic e) => Weather.fromJson(e)),
+      weatherPast: p.parseList(
+          json['weatherpast'], (dynamic e) => WeatherAtTime.fromJson(e)),
+      sun: p.parseObject(json['sun'], (dynamic e) => Sun.fromJson(e)),
+      bueber: p.parseObject(
+          json['bueber'], (dynamic e) => SwimmingChannel.fromJson(e)),
+      notification: p.parseObject(
+          json['notification'], (dynamic e) => Notification.fromJson(e)),
     );
   }
 

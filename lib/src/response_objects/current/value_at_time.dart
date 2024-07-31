@@ -1,4 +1,4 @@
-import 'package:aareguru_api/src/date_time_seconds_parser.dart';
+import '../json_parser.dart';
 
 class ValueAtTime {
   double? value;
@@ -10,10 +10,10 @@ class ValueAtTime {
   });
 
   factory ValueAtTime.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return ValueAtTime(
-      value: double.tryParse(json['value'].toString()),
-      timestamp: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.tryParse(json['timestamp'].toString())),
+      value: p.parseDouble(json['value']),
+      timestamp: p.parseDateTime(json['timestamp']),
     );
   }
 

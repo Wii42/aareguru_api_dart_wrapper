@@ -3,9 +3,9 @@ import 'package:aareguru_api/src/requests/today_request.dart';
 import 'package:aareguru_api/src/requests/widget_request.dart';
 import 'package:aareguru_api/src/response_objects/widget.dart';
 
-import '../date_time_seconds_parser.dart';
 import 'coordinate.dart';
 import 'current/current.dart';
+import 'json_parser.dart';
 import 'today.dart';
 
 class City {
@@ -42,24 +42,22 @@ class City {
   });
 
   factory City.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return City(
-      city: json['city'].toString(),
+      city: p.parseString(json['city']),
       name: json['name'].toString(),
       longName: json['longname'].toString(),
-      coordinates: json['coordinates'] != null
-          ? Coordinate.fromJson(json['coordinates'])
-          : null,
-      aareTemperature: double.tryParse(json['aare'].toString()),
-      aarePreciceTemperature: double.tryParse(json['aare_prec'].toString()),
-      weatherSymbol: json['sy'].toString(),
-      dailyMinimumAirTemperature: double.tryParse(json['tn'].toString()),
-      dailyMaximumAirTemperature: double.tryParse(json['tx'].toString()),
-      forecast: bool.tryParse(json['forecast'].toString()),
-      time: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.parse(json['time'].toString())),
-      url: Uri.tryParse(json['url']),
-      today: Uri.tryParse(json['today']),
-      widget: Uri.tryParse(json['widget']),
+      coordinates: p.parseCoordinate(json['coordinate']),
+      aareTemperature: p.parseDouble(json['aare']),
+      aarePreciceTemperature: p.parseDouble(json['aare_prec']),
+      weatherSymbol: p.parseString(json['sy']),
+      dailyMinimumAirTemperature: p.parseDouble(json['tn']),
+      dailyMaximumAirTemperature: p.parseDouble(json['tx']),
+      forecast: p.parseBool(json['forecast']),
+      time: p.parseDateTime(json['time']),
+      url: p.parseUri(json['url']),
+      today: p.parseUri(json['today']),
+      widget: p.parseUri(json['widget']),
     );
   }
 

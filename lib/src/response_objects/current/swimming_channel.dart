@@ -1,4 +1,4 @@
-import 'package:aareguru_api/src/date_time_seconds_parser.dart';
+import '../json_parser.dart';
 
 class SwimmingChannel {
   String? state;
@@ -14,12 +14,12 @@ class SwimmingChannel {
   });
 
   factory SwimmingChannel.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return SwimmingChannel(
-      state: json['state'].toString(),
-      isOpen: bool.tryParse(json['state_open_flag'].toString()),
-      source: json['source'].toString(),
-      time: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.tryParse(json['time'].toString())),
+      state: p.parseString(json['state']),
+      isOpen: p.parseBool(json['state_open_flag']),
+      source: p.parseString(json['source']),
+      time: p.parseDateTime(json['time']),
     );
   }
 

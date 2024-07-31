@@ -1,3 +1,5 @@
+import 'json_parser.dart';
+
 class CityKey {
   String? key;
   String? name;
@@ -8,9 +10,10 @@ class CityKey {
   });
 
   factory CityKey.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return CityKey(
-      key: json['key'].toString(),
-      name: json['name'].toString(),
+      key: p.parseString(json['key']),
+      name: p.parseString(json['name']),
     );
   }
 

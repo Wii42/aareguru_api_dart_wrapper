@@ -1,6 +1,5 @@
-import 'package:aareguru_api/src/date_time_seconds_parser.dart';
-
 import '../coordinate.dart';
+import '../json_parser.dart';
 import 'scale_entry.dart';
 import 'value_at_time.dart';
 
@@ -44,33 +43,28 @@ class River {
   });
 
   factory River.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return River(
-      location: json['location'].toString(),
-      locationLong: json['location_long'].toString(),
-      coordinates: json['coordinates'] != null
-          ? Coordinate.fromJson(json['coordinates'])
-          : null,
-      forecast: bool.tryParse(json['forecast'].toString()),
-      timestamp: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.parse(json['timestamp'].toString())),
-      timeString: json['timestring'].toString(),
-      temperature: double.tryParse(json['temperature'].toString()),
-      temperaturePrecise: double.tryParse(json['temperature_prec'].toString()),
-      temperatureText: json['temperature_text'].toString(),
-      temperatureTextShort: json['temperature_text_short'].toString(),
-      flow: double.tryParse(json['flow'].toString()),
-      flowText: json['flow_text'].toString(),
-      temperatureForecast2h: double.tryParse(json['forecast2h'].toString()),
-      temperatureForecast2hText: json['forecast2h_text'].toString(),
-      temperatureScale: json['temperature_scale'] != null
-          ? ScaleEntry.listFromJson(json['temperature_scale'])
-          : null,
-      flowScale: json['flow_scale'] != null
-          ? ScaleEntry.listFromJson(json['flow_scale'])
-          : null,
-      historicalTempMax: json['historical_temp_max'] != null
-          ? ValueAtTime.fromJson(json['historical_temp_max'])
-          : null,
+      location: p.parseString(json['location']),
+      locationLong: p.parseString(json['location_long']),
+      coordinates: p.parseCoordinate(json['coordinate']),
+      forecast: p.parseBool(json['forecast']),
+      timestamp: p.parseDateTime(json['timestamp']),
+      timeString: p.parseString(json['timestring']),
+      temperature: p.parseDouble(json['temperature']),
+      temperaturePrecise: p.parseDouble(json['temperature_prec']),
+      temperatureText: p.parseString(json['temperature_text']),
+      temperatureTextShort: p.parseString(json['temperature_text_short']),
+      flow: p.parseDouble(json['flow']),
+      flowText: p.parseString(json['flow_text']),
+      temperatureForecast2h: p.parseDouble(json['forecast2h']),
+      temperatureForecast2hText: p.parseString(json['forecast2h_text']),
+      temperatureScale: p.parseList<ScaleEntry>(
+          json['temperature_scale'], (v) => ScaleEntry.fromJson(v)),
+      flowScale: p.parseList<ScaleEntry>(
+          json['flow_scale'], (v) => ScaleEntry.fromJson(v)),
+      historicalTempMax: p.parseObject(
+          json['historical_temp_max'], (v) => ValueAtTime.fromJson(v)),
     );
   }
 

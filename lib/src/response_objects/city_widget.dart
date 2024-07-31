@@ -1,4 +1,4 @@
-import 'package:aareguru_api/src/date_time_seconds_parser.dart';
+import 'json_parser.dart';
 
 class CityWidget {
   String? city;
@@ -30,21 +30,21 @@ class CityWidget {
   });
 
   factory CityWidget.fromJson(Map<String, dynamic> json, String? city) {
+    JsonParser p = JsonParser();
     return CityWidget(
       city: city,
-      timestamp: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.parse(json['timestamp'].toString())),
-      timeString: json['timestring'].toString(),
-      waterTemperature: double.tryParse(json['temperature'].toString()),
-      waterTemperatureText: json['temperature_text'].toString(),
-      waterTemperatureTextShort: json['temperature_text_short'].toString(),
-      flow: double.tryParse(json['flow'].toString()),
-      flowText: json['flow_text'].toString(),
-      flowDangerLevel: int.tryParse(json['flow_gefahrenstufe'].toString()),
+      timestamp: p.parseDateTime(json['timestamp']),
+      timeString: p.parseString(json['timestring']),
+      waterTemperature: p.parseDouble(json['temperature']),
+      waterTemperatureText: p.parseString(json['temperature_text']),
+      waterTemperatureTextShort: p.parseString(json['temperature_text_short']),
+      flow: p.parseDouble(json['flow']),
+      flowText: p.parseString(json['flow_text']),
+      flowDangerLevel: p.parseInt(json['flow_gefahrenstufe']),
       waterTemperatureForecast2h:
           double.tryParse(json['forecast2h'].toString()),
-      airTemperature: double.tryParse(json['tt'].toString()),
-      sunTotal: json['suntotal'].toString(),
+      airTemperature: p.parseDouble(json['tt']),
+      sunTotal: p.parseString(json['suntotal']),
     );
   }
 

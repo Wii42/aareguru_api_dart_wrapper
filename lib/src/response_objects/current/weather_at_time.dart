@@ -1,4 +1,4 @@
-import 'package:aareguru_api/src/date_time_seconds_parser.dart';
+import '../json_parser.dart';
 
 class WeatherAtTime {
   DateTime? timestamp;
@@ -10,10 +10,10 @@ class WeatherAtTime {
   });
 
   factory WeatherAtTime.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return WeatherAtTime(
-      timestamp: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.tryParse(json['timestamp'].toString())),
-      temperature: double.tryParse(json['tt'].toString()),
+      timestamp: p.parseDateTime(json['timestamp']),
+      temperature: p.parseDouble(json['temperature']),
     );
   }
 

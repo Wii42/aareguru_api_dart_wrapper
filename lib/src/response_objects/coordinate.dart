@@ -1,3 +1,5 @@
+import 'json_parser.dart';
+
 class Coordinate {
   double? lat;
   double? lon;
@@ -5,9 +7,10 @@ class Coordinate {
   Coordinate({this.lat, this.lon});
 
   factory Coordinate.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return Coordinate(
-      lat: double.tryParse(json['lat'].toString()),
-      lon: double.tryParse(json['lon'].toString()),
+      lat: p.parseDouble(json['lat']),
+      lon: p.parseDouble(json['lon']),
     );
   }
 

@@ -1,4 +1,4 @@
-import 'package:aareguru_api/src/date_time_seconds_parser.dart';
+import '../json_parser.dart';
 
 class Notification {
   DateTime? time;
@@ -12,11 +12,11 @@ class Notification {
   });
 
   factory Notification.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return Notification(
-      time: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.tryParse(json['time'].toString())),
-      author: json['author'].toString(),
-      event: json['event'].toString(),
+      time: p.parseDateTime(json['time']),
+      author: p.parseString(json['author']),
+      event: p.parseString(json['event']),
     );
   }
 

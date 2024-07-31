@@ -1,4 +1,4 @@
-import '../../date_time_seconds_parser.dart';
+import '../json_parser.dart';
 
 class CurrentWeather {
   double? currentTemperature; // in API "tt"
@@ -16,13 +16,13 @@ class CurrentWeather {
   });
 
   factory CurrentWeather.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return CurrentWeather(
-      currentTemperature: double.tryParse(json['tt'].toString()),
-      rainfall: int.tryParse(json['rr'].toString()),
-      rainfallReal: double.tryParse(json['rrreal'].toString()),
-      timestamp: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.parse(json['timestamp'].toString())),
-      timeString: json['timestring'].toString(),
+      currentTemperature: p.parseDouble(json['tt']),
+      rainfall: p.parseInt(json['rr']),
+      rainfallReal: p.parseDouble(json['rrreal']),
+      timestamp: p.parseDateTime(json['timestamp']),
+      timeString: p.parseString(json['timestring']),
     );
   }
 

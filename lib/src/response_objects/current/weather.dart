@@ -1,3 +1,4 @@
+import '../json_parser.dart';
 import 'current_weather.dart';
 import 'weather_forecast.dart';
 import 'weather_today.dart';
@@ -14,15 +15,14 @@ class Weather {
   });
 
   factory Weather.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return Weather(
-      current: json['current'] != null
-          ? CurrentWeather.fromJson(json['current'])
-          : null,
+      current: p.parseObject(
+          json['current'], (dynamic e) => CurrentWeather.fromJson(e)),
       today:
-          json['today'] != null ? WeatherToday.fromJson(json['today']) : null,
-      forecast: json['forecast'] != null
-          ? WeatherForecast.listFromJson(json['forecast'])
-          : null,
+          p.parseObject(json['today'], (dynamic e) => WeatherToday.fromJson(e)),
+      forecast: p.parseList(
+          json['forecast'], (dynamic e) => WeatherForecast.fromJson(e)),
     );
   }
 

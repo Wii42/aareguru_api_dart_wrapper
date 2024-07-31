@@ -1,3 +1,5 @@
+import '../json_parser.dart';
+
 class SunPerDay {
   String? day;
   String? dayShort; // in API "dayshort"
@@ -12,11 +14,12 @@ class SunPerDay {
   });
 
   factory SunPerDay.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return SunPerDay(
-      day: json['day'].toString(),
-      dayShort: json['dayshort'].toString(),
-      sunTotal: json['suntotal'].toString(),
-      sunRelative: double.tryParse(json['sunrelative'].toString()),
+      day: p.parseString(json['day']),
+      dayShort: p.parseString(json['dayshort']),
+      sunTotal: p.parseString(json['suntotal']),
+      sunRelative: p.parseDouble(json['sunrelative']),
     );
   }
 

@@ -1,3 +1,4 @@
+import '../json_parser.dart';
 import 'sun_location.dart';
 import 'sun_per_day.dart';
 
@@ -13,14 +14,13 @@ class Sun {
   });
 
   factory Sun.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return Sun(
-      today: json['today'] != null ? SunPerDay.fromJson(json['today']) : null,
-      forecast: json['forecast'] != null
-          ? SunPerDay.listFromJson(json['forecast'].values.toList())
-          : null,
-      sunLocations: json['sunlocations'] != null
-          ? SunLocation.listFromJson(json['sunlocations'])
-          : null,
+      today: p.parseObject(json['today'], (dynamic e) => SunPerDay.fromJson(e)),
+      forecast:
+          p.parseList(json['forecast'].values, (dynamic e) => SunPerDay.fromJson(e)),
+      sunLocations: p.parseList(
+          json['sunlocations'], (dynamic e) => SunLocation.fromJson(e)),
     );
   }
 

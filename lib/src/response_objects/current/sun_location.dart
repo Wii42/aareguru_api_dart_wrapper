@@ -1,4 +1,4 @@
-import '../../date_time_seconds_parser.dart';
+import '../json_parser.dart';
 
 class SunLocation {
   String? name;
@@ -19,16 +19,15 @@ class SunLocation {
   });
 
   factory SunLocation.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return SunLocation(
-      name: json['name'].toString(),
-      sunrise: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.tryParse(json['sunrise'].toString())),
-      suriseLocal: json['sunriselocal'].toString(),
-      sunset: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.tryParse(json['sunset'].toString())),
-      sunsetLocal: json['sunsetlocal'].toString(),
-      timeLeft: double.tryParse(json['timeleft'].toString()),
-      timeLeftString: json['timeleftstring'].toString(),
+      name: p.parseString(json['name']),
+      sunrise: p.parseDateTime(json['sunrise']),
+      suriseLocal: p.parseString(json['sunriselocal']),
+      sunset: p.parseDateTime(json['sunset']),
+      sunsetLocal: p.parseString(json['sunsetlocal']),
+      timeLeft: p.parseDouble(json['timeleft']),
+      timeLeftString: p.parseString(json['timeleftstring']),
     );
   }
 

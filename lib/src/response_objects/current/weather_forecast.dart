@@ -1,4 +1,4 @@
-import 'package:aareguru_api/src/date_time_seconds_parser.dart';
+import '../json_parser.dart';
 
 class WeatherForecast {
   String? day;
@@ -26,18 +26,18 @@ class WeatherForecast {
   });
 
   factory WeatherForecast.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return WeatherForecast(
-      day: json['day'].toString(),
-      dayShort: json['dayshort'].toString(),
-      timestamp: DateTimeSecondsParser.tryParseSecondsSinceEpoch(
-          int.tryParse(json['timestamp'].toString())),
-      symbol: json['sy'].toString(),
-      symbolText: json['syt'].toString(),
-      symbol2: json['symt'].toString(),
-      maxTemperature: double.tryParse(json['tx'].toString()),
-      minTemperature: double.tryParse(json['tn'].toString()),
-      rainfall: int.tryParse(json['rr'].toString()),
-      rainfallRisk: double.tryParse(json['rrisk'].toString()),
+      day: p.parseString(json['day']),
+      dayShort: p.parseString(json['dayshort']),
+      timestamp: p.parseDateTime(json['timestamp']),
+      symbol: p.parseString(json['sy']),
+      symbolText: p.parseString(json['syt']),
+      symbol2: p.parseString(json['symt']),
+      maxTemperature: p.parseDouble(json['tx']),
+      minTemperature: p.parseDouble(json['tn']),
+      rainfall: p.parseInt(json['rr']),
+      rainfallRisk: p.parseDouble(json['rrisk']),
     );
   }
 

@@ -1,8 +1,9 @@
 import 'city_key.dart';
 import 'city_widget.dart';
+import 'json_parser.dart';
 
 class WidgetData {
-  Map<String, CityWidget>? values;
+  Map<String, CityWidget?>? values;
   List<CityKey>? cities;
 
   WidgetData({
@@ -11,14 +12,10 @@ class WidgetData {
   });
 
   factory WidgetData.fromJson(Map<String, dynamic> json) {
-    print(json['values'].runtimeType);
-    Map<String, dynamic>? values = json['values'];
+    JsonParser p = JsonParser();
     return WidgetData(
-      values: values?.map(
-        (k, e) => MapEntry(k.toString(), CityWidget.fromJson(e, k.toString())),
-      ),
-      cities:
-          json['cities'] != null ? CityKey.listFromJson(json['cities']) : null,
+      values: p.parseCityWidgetMap(json['values']),
+      cities: p.parseList(json['cities'], (dynamic e) => CityKey.fromJson(e)),
     );
   }
 

@@ -1,3 +1,5 @@
+import '../json_parser.dart';
+
 class ScaleEntry {
   int? value;
   String? text;
@@ -10,10 +12,11 @@ class ScaleEntry {
   });
 
   factory ScaleEntry.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return ScaleEntry(
-      value: int.tryParse(json['value'].toString()),
-      text: json['text'].toString(),
-      position: json['position'].toString(),
+      value: p.parseInt(json['value']),
+      text: p.parseString(json['text']),
+      position: p.parseString(json['position']),
     );
   }
 

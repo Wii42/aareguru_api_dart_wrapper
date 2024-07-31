@@ -1,3 +1,5 @@
+import '../json_parser.dart';
+
 class TimeOfDayWeather {
   String? weatherSymbol; // in API "sy"
   String? weatherText; // in API "syt"
@@ -16,13 +18,14 @@ class TimeOfDayWeather {
   });
 
   factory TimeOfDayWeather.fromJson(Map<String, dynamic> json) {
+    JsonParser p = JsonParser();
     return TimeOfDayWeather(
-      weatherSymbol: json['sy'].toString(),
-      weatherText: json['syt'].toString(),
-      weatherSymbol2: json['symt'].toString(),
-      temperature: double.tryParse(json['tt'].toString()),
-      rainfall: int.tryParse(json['rr'].toString()),
-      rainfallRisk: double.tryParse(json['rrisk'].toString()),
+      weatherSymbol: p.parseString(json['sy']),
+      weatherText: p.parseString(json['syt']),
+      weatherSymbol2: p.parseString(json['symt']),
+      temperature: p.parseDouble(json['tt']),
+      rainfall: p.parseInt(json['rr']),
+      rainfallRisk: p.parseDouble(json['rrisk']),
     );
   }
 
