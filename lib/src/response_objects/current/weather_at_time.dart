@@ -13,7 +13,7 @@ class WeatherAtTime {
     JsonParser p = JsonParser();
     return WeatherAtTime(
       timestamp: p.parseDateTime(json['timestamp']),
-      temperature: p.parseDouble(json['temperature']),
+      temperature: p.parseDouble(json['tt']),
     );
   }
 
