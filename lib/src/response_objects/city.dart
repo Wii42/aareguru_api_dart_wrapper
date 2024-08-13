@@ -47,7 +47,7 @@ class City {
       city: p.parseString(json['city']),
       name: json['name'].toString(),
       longName: json['longname'].toString(),
-      coordinates: p.parseCoordinate(json['coordinate']),
+      coordinates: p.parseCoordinate(json['coordinates']),
       aareTemperature: p.parseDouble(json['aare']),
       aarePreciceTemperature: p.parseDouble(json['aare_prec']),
       weatherSymbol: p.parseString(json['sy']),
