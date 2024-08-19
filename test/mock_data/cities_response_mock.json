@@ -1,0 +1,40 @@
+[
+  {
+    "city": "brienz",
+    "name": "Brienz",
+    "longname": "Brienzwiler",
+    "coordinates": {
+      "lat": 46.75,
+      "lon": 8.09
+    },
+    "aare": 8.3,
+    "aare_prec": 8.29,
+    "sy": 10,
+    "tn": 14,
+    "tx": 21,
+    "forecast": false,
+    "time": 1724098800,
+    "url": "https:\/\/aareguru.existenz.ch\/v2018\/current?city=brienz",
+    "today": "https:\/\/aareguru.existenz.ch\/v2018\/today?city=brienz",
+    "widget": "https:\/\/aareguru.existenz.ch\/v2018\/widget?city=brienz"
+  },
+  {
+    "city": "bern",
+    "name": "B\u00e4rn",
+    "longname": "Bern, Sch\u00f6nau",
+    "coordinates": {
+      "lat": 46.93,
+      "lon": 7.45
+    },
+    "aare": 16.7,
+    "aare_prec": 16.7,
+    "sy": 10,
+    "tn": 15,
+    "tx": 23,
+    "forecast": false,
+    "time": 1724099400,
+    "url": "https:\/\/aareguru.existenz.ch\/v2018\/current?city=bern",
+    "today": "https:\/\/aareguru.existenz.ch\/v2018\/today?city=bern",
+    "widget": "https:\/\/aareguru.existenz.ch\/v2018\/widget?city=bern"
+  }
+]

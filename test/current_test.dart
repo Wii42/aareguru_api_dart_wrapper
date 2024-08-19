@@ -4,13 +4,16 @@ import 'dart:io';
 import 'package:aareguru_api/aareguru_api.dart';
 import 'package:test/test.dart';
 
+dynamic loadMockData(String fileName) {
+  File currentResponseMock = File('test/mock_data/$fileName');
+  String currentResponseString = currentResponseMock.readAsStringSync();
+  return jsonDecode(currentResponseString);
+}
+
 void main() {
   dynamic mockJson;
-  setUpAll(() async {
-    File currentResponseMock =
-        File('test/mock_data/current_response_mock.json');
-    String currentResponseString = await currentResponseMock.readAsString();
-    mockJson = jsonDecode(currentResponseString);
+  setUpAll(() {
+    mockJson = loadMockData('current_response_mock.json');
   });
   group('Current', () {
     Current current() => Current.fromJson(mockJson);
