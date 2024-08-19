@@ -61,7 +61,7 @@ class City {
     );
   }
 
-  static fromJsonList(List<dynamic> json) {
+  static List<City> fromJsonList(List<dynamic> json) {
     return json.map((value) => City.fromJson(value)).toList();
   }
 
