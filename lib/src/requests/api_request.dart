@@ -82,7 +82,7 @@ abstract class ApiRequest<T extends Object> {
 
   /// Same parsed return as [request] but from the given [url].
   /// Can be used if the exact url for the request is provided externally.
-  /// Schuld not be used if [values] are specified.
+  /// Should not be used if [values] are specified.
   Future<T> urlRequest(Uri url) async {
     String response = await sendRequest(url);
     dynamic json = jsonDecode(response);

@@ -1,0 +1,202 @@
+{
+  "aare": {
+    "location": "B\u00e4rn",
+    "location_long": "Bern, Sch\u00f6nau",
+    "coordinates": {
+      "lat": 46.93,
+      "lon": 7.45
+    },
+    "forecast": false,
+    "timestamp": 1724083800,
+    "timestring": "18:10",
+    "temperature": 17.2,
+    "temperature_prec": 17.23,
+    "temperature_text": "Mit de Boumst\u00e4m schw\u00fcmme",
+    "temperature_text_short": "Zvil Boumst\u00e4m",
+    "flow": 229,
+    "flow_text": "mega viu",
+    "forecast2h": 17.2,
+    "forecast2h_text": "Blibt \u00e4u\u00e4 \u00f6pe glich",
+    "height": 502.84,
+    "temperature_scale": [
+      {
+        "value": 1,
+        "text": "Iglu boue bringts meh",
+        "position": "start"
+      },
+      {
+        "value": 12,
+        "text": "Las vilech gschider lasii",
+        "position": "start"
+      }
+    ],
+    "flow_scale": [
+      {
+        "value": 50,
+        "text": "nid viu",
+        "position": "start"
+      },
+      {
+        "value": 100,
+        "text": "eher wenig",
+        "position": "start"
+      }
+    ],
+    "historical_temp_max": {
+      "value": 24.12,
+      "timestamp": 1659625200
+    }
+  },
+  "aarepast": [
+    {
+      "timestamp": 1723912200,
+      "flow": 261,
+      "temperature": 19.69
+    },
+    {
+      "timestamp": 1723935300,
+      "flow": 263,
+      "temperature": null
+    },
+    {
+      "timestamp": 1724083800,
+      "flow": 228,
+      "temperature": 17.23
+    }
+  ],
+  "weather": {
+    "current": {
+      "tt": 20.5,
+      "rr": 1,
+      "rrreal": 1.2,
+      "timestamp": 1724083800,
+      "timestring": "18:10"
+    },
+    "today": {
+      "v": {
+        "sy": "b",
+        "syt": "zimlech sunnig",
+        "symt": 2,
+        "tt": 18,
+        "rr": 0,
+        "rrisk": 20
+      },
+      "n": {
+        "sy": "b",
+        "syt": "zimlech sunnig",
+        "symt": 2,
+        "tt": 22,
+        "rr": 0,
+        "rrisk": 0
+      },
+      "a": {
+        "sy": "a",
+        "syt": "sunnig",
+        "symt": 1,
+        "tt": 22,
+        "rr": 0,
+        "rrisk": 0
+      }
+    },
+    "forecast": [
+      {
+        "day": "Zischti",
+        "dayshort": "Di.",
+        "timestamp": 1724171100,
+        "sy": "b",
+        "syt": "zimlech sunnig",
+        "symt": 2,
+        "tx": 26,
+        "tn": 13,
+        "rr": 0,
+        "rrisk": 0
+      },
+      {
+        "day": "Mitwuch",
+        "dayshort": "Mi.",
+        "timestamp": 1724257500,
+        "sy": "c",
+        "syt": "bew\u00f6ukt",
+        "symt": 3,
+        "tx": 23,
+        "tn": 15,
+        "rr": 0,
+        "rrisk": 20
+      }
+    ]
+  },
+  "weatherpast": [
+    {
+      "timestamp": 1723912200,
+      "tt": 21.8
+    },
+    {
+      "timestamp": 1724083200,
+      "tt": 20.5
+    },
+    {
+      "timestamp": 1724083800,
+      "tt": 20.5
+    }
+  ],
+  "sun": {
+    "today": {
+      "suntotal": "5:21",
+      "sunrelative": 39
+    },
+    "forecast": {
+      "1": {
+        "day": "Zischti",
+        "dayshort": "Di.",
+        "suntotal": "10:11",
+        "sunrelative": 73
+      },
+      "2": {
+        "day": "Mitwuch",
+        "dayshort": "Mi.",
+        "suntotal": "7:15",
+        "sunrelative": 52
+      }
+    },
+    "sunlocations": [
+      {
+        "name": "Eichholz",
+        "sunrise": 1724049000,
+        "sunriselocal": "08:30",
+        "sunset": 1724083020,
+        "sunsetlocal": "17:57",
+        "timeleft": 0,
+        "timeleftstring": "0:00:00"
+      },
+      {
+        "name": "Marzili",
+        "sunrise": 1724046300,
+        "sunriselocal": "07:45",
+        "sunset": 1724087100,
+        "sunsetlocal": "19:05",
+        "timeleft": 2425,
+        "timeleftstring": "0:40:25"
+      },
+      {
+        "name": "Lorraine",
+        "sunrise": 1724057280,
+        "sunriselocal": "10:48",
+        "sunset": 1724085840,
+        "sunsetlocal": "18:44",
+        "timeleft": 1165,
+        "timeleftstring": "0:19:25"
+      }
+    ]
+  },
+  "bueber": {
+    "state": "closed",
+    "state_open_flag": false,
+    "source": "badmeister",
+    "time": 1723875298
+  },
+  "notification": {
+    "time": 1693916190,
+    "author": "reto",
+    "event": "created"
+  }
+}

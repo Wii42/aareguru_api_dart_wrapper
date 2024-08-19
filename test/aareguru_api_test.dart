@@ -1,6 +1,7 @@
 import 'package:aareguru_api/aareguru_api.dart';
 import 'package:test/test.dart';
 
+/// Test the AareGuruApi, check if the API is working and all endpoints are reachable
 void main() {
   AareGuruApi api = AareGuruApi(appName: 'Wi42_test', appVersion: '0.1');
   test('City', () async {
