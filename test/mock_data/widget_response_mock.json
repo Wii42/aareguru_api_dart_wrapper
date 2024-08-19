@@ -1,0 +1,40 @@
+{
+  "values": {
+    "thun": {
+      "timestamp": 1724101800,
+      "timestring": "23:10",
+      "temperature": 17.2,
+      "temperature_text": "Me chas wage",
+      "temperature_text_short": "Me chas wage",
+      "flow": 204,
+      "flow_text": "ender viu",
+      "flow_gefahrenstufe": 1,
+      "forecast2h": 17.3,
+      "tt": 16,
+      "suntotal": "3:52"
+    },
+    "bern": {
+      "timestamp": 1724101800,
+      "timestring": "23:10",
+      "temperature": 16.6,
+      "temperature_text": "Viu chauts Wasser",
+      "temperature_text_short": "Viu Wasser",
+      "flow": 228,
+      "flow_text": "\u26a0\ufe0f mega viu",
+      "flow_gefahrenstufe": 1,
+      "forecast2h": 16.4,
+      "tt": 16.5,
+      "suntotal": "4:40"
+    }
+  },
+  "cities": [
+    {
+      "key": "hagneck",
+      "name": "Hagneck"
+    },
+    {
+      "key": "biel",
+      "name": "Biu"
+    }
+  ]
+}

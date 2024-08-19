@@ -4,5 +4,5 @@ void main() async{
     AareGuruApi api = AareGuruApi(appName: 'Wi42_test', appVersion: '0.1');
     List<City> cities = await api.cities();
     //print(cities.map((City city) => city.coordinates));
-    print((await api.today(Cities.interlaken.name)));
+    print((await api.widget()));
 }
