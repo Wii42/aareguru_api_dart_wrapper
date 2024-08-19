@@ -1,7 +1,8 @@
 import 'package:aareguru_api/src/date_time_seconds_parser.dart';
+import 'package:aareguru_api/src/lat_long_parser.dart';
+import 'package:latlong2/latlong.dart';
 
 import 'city_widget.dart';
-import 'coordinate.dart';
 
 class JsonParser {
   T? parseObject<T>(dynamic value, T Function(dynamic) fromJson) {
@@ -21,9 +22,6 @@ class JsonParser {
 
   bool? parseBool(dynamic value) =>
       parseObject<bool?>(value, (v) => bool.tryParse(v.toString()));
-
-  parseCoordinate(dynamic value) =>
-      parseObject(value, (v) => Coordinate.fromJson(v));
 
   /// expects seconds since epoch
   DateTime? parseDateTime(dynamic value) {
@@ -60,4 +58,10 @@ class JsonParser {
     Iterable<dynamic> list = values;
     return list.map<T>((value) => fromJson(value)).toList();
   }
+
+  Duration? parseDuration(dynamic value) =>
+      parseObject<Duration?>(parseInt(value), (v) => Duration(seconds: v));
+
+  LatLng? parseLatLng(dynamic value) =>
+      parseObject<LatLng?>(value, (v) => LatLongParser.fromJson(v));
 }

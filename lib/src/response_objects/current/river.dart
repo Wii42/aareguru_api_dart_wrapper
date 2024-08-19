@@ -1,4 +1,5 @@
-import '../coordinate.dart';
+import 'package:latlong2/latlong.dart';
+
 import '../json_parser.dart';
 import 'scale_entry.dart';
 import 'value_at_time.dart';
@@ -6,7 +7,7 @@ import 'value_at_time.dart';
 class River {
   String? location;
   String? locationLong; // in API "location_long"
-  Coordinate? coordinates;
+  LatLng? coordinates;
   bool? forecast;
   DateTime? timestamp;
   String? timeString; // in API "timestring"
@@ -49,7 +50,7 @@ class River {
     return River(
       location: p.parseString(json['location']),
       locationLong: p.parseString(json['location_long']),
-      coordinates: p.parseCoordinate(json['coordinates']),
+      coordinates: p.parseLatLng(json['coordinates']),
       forecast: p.parseBool(json['forecast']),
       timestamp: p.parseDateTime(json['timestamp']),
       timeString: p.parseString(json['timestring']),

@@ -2,8 +2,7 @@ import 'package:aareguru_api/src/requests/current_request.dart';
 import 'package:aareguru_api/src/requests/today_request.dart';
 import 'package:aareguru_api/src/requests/widget_request.dart';
 import 'package:aareguru_api/src/response_objects/widget.dart';
-
-import 'coordinate.dart';
+import 'package:latlong2/latlong.dart';
 import 'current/current.dart';
 import 'json_parser.dart';
 import 'today.dart';
@@ -12,7 +11,7 @@ class City {
   String? city;
   String? name;
   String? longName; // in API "longname"
-  Coordinate? coordinates;
+  LatLng? coordinates;
   double? aareTemperature; // in API "aare"
   double? aarePreciceTemperature; // in API "aare_prec"
   String? weatherSymbol; // in API "sy"
@@ -47,7 +46,7 @@ class City {
       city: p.parseString(json['city']),
       name: json['name'].toString(),
       longName: json['longname'].toString(),
-      coordinates: p.parseCoordinate(json['coordinates']),
+      coordinates: p.parseLatLng(json['coordinates']),
       aareTemperature: p.parseDouble(json['aare']),
       aarePreciceTemperature: p.parseDouble(json['aare_prec']),
       weatherSymbol: p.parseString(json['sy']),

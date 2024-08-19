@@ -14,3 +14,9 @@
 ## 0.1.0+2
 
 - fixed issue in parsing WeatherAtTime
+
+## 0.2.0
+
+- Added tests for parsing of all models
+- Fixed errors discovered by tests
+- Moved coordinates from custom Coordinate class to `package:latlong2` `LatLng` class

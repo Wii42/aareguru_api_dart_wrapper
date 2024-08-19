@@ -8,7 +8,6 @@ export 'src/cities_enum.dart';
 export 'src/response_objects/city.dart';
 export 'src/response_objects/city_key.dart';
 export 'src/response_objects/city_widget.dart';
-export 'src/response_objects/coordinate.dart';
 export 'src/response_objects/current/current.dart';
 export 'src/response_objects/current/current_weather.dart';
 export 'src/response_objects/current/notification.dart';

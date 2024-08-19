@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:aareguru_api/aareguru_api.dart';
+import 'package:aareguru_api/src/lat_long_parser.dart';
+import 'package:latlong2/latlong.dart';
 import 'package:test/test.dart';
 
 dynamic loadMockData(String fileName) {
@@ -17,21 +19,21 @@ void main() {
   });
   group('Current', () {
     Current current() => Current.fromJson(mockJson);
-    test('current', () => expect(current(), isNotNull));
-    test('aare', () => expect(current().aare, isNotNull));
+    test('current', () => expect(current(), isA<Current>()));
+    test('aare', () => expect(current().aare, isA<River>()));
     test('aarePast', () => expect(current().aarePast, hasLength(3)));
-    test('weather', () => expect(current().weather, isNotNull));
+    test('weather', () => expect(current().weather, isA<Weather>()));
     test('weatherPast', () => expect(current().weatherPast, hasLength(3)));
-    test('sun', () => expect(current().sun, isNotNull));
-    test('bueber', () => expect(current().bueber, isNotNull));
-    test('notification', () => expect(current().notification, isNotNull));
+    test('sun', () => expect(current().sun, isA<Sun>()));
+    test('bueber', () => expect(current().bueber, isA<SwimmingChannel>()));
+    test('notification', () => expect(current().notification, isA<Notification>()));
   });
   group('River', () {
     River aare() => River.fromJson(mockJson['aare']);
     test('aare', () => expect(aare(), isNotNull));
     test('location', () => expect(aare().location, 'Bärn'));
     test('locationLong', () => expect(aare().locationLong, 'Bern, Schönau'));
-    test('coordinates', () => expect(aare().coordinates, isNotNull));
+    test('coordinates', () => expect(aare().coordinates, isA<LatLng>()));
     test('forecast', () => expect(aare().forecast, false));
     test('timestamp',
         () => expect(aare().timestamp, DateTime(2024, 8, 19, 18, 10, 0)));
@@ -56,12 +58,12 @@ void main() {
         'historicalTempMax', () => expect(aare().historicalTempMax, isNotNull));
   });
 
-  group('Coordinate', () {
-    Coordinate coordinates() =>
-        Coordinate.fromJson(mockJson['aare']['coordinates']);
+  group('LatLng', () {
+    LatLng? coordinates() =>
+        LatLongParser.fromJson(mockJson['aare']['coordinates']);
     test('coordinate', () => expect(coordinates, isNotNull));
-    test('aare', () => expect(coordinates().lat, 46.93));
-    test('aare', () => expect(coordinates().lon, 7.45));
+    test('aare', () => expect(coordinates()?.latitude, 46.93));
+    test('aare', () => expect(coordinates()?.longitude, 7.45));
   });
 
   group('ScaleEntry', () {
@@ -199,9 +201,12 @@ void main() {
     test('sunset',
         () => expect(sunLocation().sunset, DateTime(2024, 8, 19, 17, 57, 0)));
     test('sunsetLocal', () => expect(sunLocation().sunsetLocal, "17:57"));
-    test('timeLeft', () => expect(sunLocation().timeLeft, 0));
+    test(
+        'timeLeft',
+        () => expect(sunLocation().timeLeft,
+            Duration(hours: 18, minutes: 59, seconds: 51)));
     test('timeLeftString',
-        () => expect(sunLocation().timeLeftString, "0:00:00"));
+        () => expect(sunLocation().timeLeftString, "18:59:51"));
   });
 
   group('SwimmingChannel', () {

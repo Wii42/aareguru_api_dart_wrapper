@@ -6,7 +6,7 @@ class SunLocation {
   String? sunriseLocal; // in API "sunriselocal"
   DateTime? sunset;
   String? sunsetLocal; // in API "sunsetlocal"
-  double? timeLeft; // in API "timeleft"
+  Duration? timeLeft; // in API "timeleft"
   String? timeLeftString; // in API "timeleftstring"
   SunLocation({
     this.name,
@@ -26,7 +26,7 @@ class SunLocation {
       sunriseLocal: p.parseString(json['sunriselocal']),
       sunset: p.parseDateTime(json['sunset']),
       sunsetLocal: p.parseString(json['sunsetlocal']),
-      timeLeft: p.parseDouble(json['timeleft']),
+      timeLeft: p.parseDuration(json['timeleft']),
       timeLeftString: p.parseString(json['timeleftstring']),
     );
   }
