@@ -18,6 +18,7 @@ class River {
   String? flowText; // in API "flow_text"
   double? temperatureForecast2h; // in API "forecast2h"
   String? temperatureForecast2hText; // in API "forecast2h_text"
+  double? height;
   List<ScaleEntry>? temperatureScale; // in API "temperature_scale"
   List<ScaleEntry>? flowScale; // in API "flow_scale"
   ValueAtTime? historicalTempMax; // in API "historical_temp_max"
@@ -37,6 +38,7 @@ class River {
     this.flowText,
     this.temperatureForecast2h,
     this.temperatureForecast2hText,
+    this.height,
     this.temperatureScale,
     this.flowScale,
     this.historicalTempMax,
@@ -47,7 +49,7 @@ class River {
     return River(
       location: p.parseString(json['location']),
       locationLong: p.parseString(json['location_long']),
-      coordinates: p.parseCoordinate(json['coordinate']),
+      coordinates: p.parseCoordinate(json['coordinates']),
       forecast: p.parseBool(json['forecast']),
       timestamp: p.parseDateTime(json['timestamp']),
       timeString: p.parseString(json['timestring']),
@@ -59,6 +61,7 @@ class River {
       flowText: p.parseString(json['flow_text']),
       temperatureForecast2h: p.parseDouble(json['forecast2h']),
       temperatureForecast2hText: p.parseString(json['forecast2h_text']),
+      height: p.parseDouble(json['height']),
       temperatureScale: p.parseList<ScaleEntry>(
           json['temperature_scale'], (v) => ScaleEntry.fromJson(v)),
       flowScale: p.parseList<ScaleEntry>(

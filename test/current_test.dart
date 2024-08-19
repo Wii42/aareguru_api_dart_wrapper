@@ -48,7 +48,7 @@ void main() {
         () => expect(aare().temperatureForecast2h, 17.2));
     test('temperatureForecast2hText',
         () => expect(aare().temperatureForecast2hText, 'Blibt äuä öpe glich'));
-    test('height', () => expect((aare() as dynamic).height, 502.84));
+    test('height', () => expect(aare().height, 502.84));
     test('temperatureScale',
         () => expect(aare().temperatureScale, hasLength(2)));
     test('flowScale', () => expect(aare().flowScale, hasLength(2)));
@@ -150,7 +150,8 @@ void main() {
         () => expect(
             weatherForecast().timestamp, DateTime(2024, 8, 20, 18, 25, 0)));
     test('symbol', () => expect(weatherForecast().symbol, 'b'));
-    test('symbolText', () => expect(weatherForecast().symbolText, 'zimlech sunnig'));
+    test('symbolText',
+        () => expect(weatherForecast().symbolText, 'zimlech sunnig'));
     test('symbol2', () => expect(weatherForecast().symbol2, '2'));
     test('maxTemperature', () => expect(weatherForecast().maxTemperature, 26));
     test('minTemperature', () => expect(weatherForecast().minTemperature, 13));
@@ -159,9 +160,13 @@ void main() {
   });
 
   group('WeatherAtTime', () {
-    WeatherAtTime weatherAtTime() => WeatherAtTime.fromJson(mockJson['weatherpast'][0]);
+    WeatherAtTime weatherAtTime() =>
+        WeatherAtTime.fromJson(mockJson['weatherpast'][0]);
     test('weatherAtTime', () => expect(weatherAtTime, isNotNull));
-    test('timestamp', () => expect(weatherAtTime().timestamp, DateTime(2024, 8, 17, 18, 30, 0)));
+    test(
+        'timestamp',
+        () => expect(
+            weatherAtTime().timestamp, DateTime(2024, 8, 17, 18, 30, 0)));
     test('temperature', () => expect(weatherAtTime().temperature, 21.8));
   });
 
@@ -174,7 +179,8 @@ void main() {
   });
 
   group('SunPerDay', () {
-    SunPerDay sunPerDay() => SunPerDay.fromJson(mockJson['sun']['forecast']['1']);
+    SunPerDay sunPerDay() =>
+        SunPerDay.fromJson(mockJson['sun']['forecast']['1']);
     test('sunPerDay', () => expect(sunPerDay, isNotNull));
     test('day', () => expect(sunPerDay().day, 'Zischti'));
     test('dayShort', () => expect(sunPerDay().dayShort, 'Di.'));
@@ -183,32 +189,39 @@ void main() {
   });
 
   group('SunLocation', () {
-    SunLocation sunLocation() => SunLocation.fromJson(mockJson['sun']['sunlocations'][0]);
+    SunLocation sunLocation() =>
+        SunLocation.fromJson(mockJson['sun']['sunlocations'][0]);
     test('sunLocation', () => expect(sunLocation, isNotNull));
     test('name', () => expect(sunLocation().name, 'Eichholz'));
-    test('sunrise', () => expect(sunLocation().sunrise, DateTime(2024, 8, 19, 8, 30, 0)));
-    test('sunriseLocal', () => expect((sunLocation() as dynamic).sunriseLocal, "08:30"));
-    test('sunset', () => expect(sunLocation().sunset, DateTime(2024, 8, 19, 17, 57, 0)));
+    test('sunrise',
+        () => expect(sunLocation().sunrise, DateTime(2024, 8, 19, 8, 30, 0)));
+    test('sunriseLocal', () => expect(sunLocation().sunriseLocal, "08:30"));
+    test('sunset',
+        () => expect(sunLocation().sunset, DateTime(2024, 8, 19, 17, 57, 0)));
     test('sunsetLocal', () => expect(sunLocation().sunsetLocal, "17:57"));
     test('timeLeft', () => expect(sunLocation().timeLeft, 0));
-    test('timeLeftString', () => expect(sunLocation().timeLeftString, "0:00:00"));
+    test('timeLeftString',
+        () => expect(sunLocation().timeLeftString, "0:00:00"));
   });
 
   group('SwimmingChannel', () {
-    SwimmingChannel swimmingChannel() => SwimmingChannel.fromJson(mockJson['bueber']);
+    SwimmingChannel swimmingChannel() =>
+        SwimmingChannel.fromJson(mockJson['bueber']);
     test('swimmingChannel', () => expect(swimmingChannel, isNotNull));
     test('state', () => expect(swimmingChannel().state, 'closed'));
     test('isOpen', () => expect(swimmingChannel().isOpen, false));
     test('source', () => expect(swimmingChannel().source, 'badmeister'));
-    test('time', () => expect(swimmingChannel().time, DateTime(2024, 8, 17, 8, 14, 58)));
+    test('time',
+        () => expect(swimmingChannel().time, DateTime(2024, 8, 17, 8, 14, 58)));
   });
 
   group('Notification', () {
-    Notification notification() => Notification.fromJson(mockJson['notification']);
+    Notification notification() =>
+        Notification.fromJson(mockJson['notification']);
     test('notification', () => expect(notification, isNotNull));
-    test('time', () => expect(notification().time, DateTime(2023, 9, 5, 14, 16, 30)));
+    test('time',
+        () => expect(notification().time, DateTime(2023, 9, 5, 14, 16, 30)));
     test('author', () => expect(notification().author, 'reto'));
     test('event', () => expect(notification().event, 'created'));
-
   });
 }

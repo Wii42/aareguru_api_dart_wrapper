@@ -3,7 +3,7 @@ import '../json_parser.dart';
 class SunLocation {
   String? name;
   DateTime? sunrise;
-  String? suriseLocal; // in API "sunriselocal"
+  String? sunriseLocal; // in API "sunriselocal"
   DateTime? sunset;
   String? sunsetLocal; // in API "sunsetlocal"
   double? timeLeft; // in API "timeleft"
@@ -11,7 +11,7 @@ class SunLocation {
   SunLocation({
     this.name,
     this.sunrise,
-    this.suriseLocal,
+    this.sunriseLocal,
     this.sunset,
     this.sunsetLocal,
     this.timeLeft,
@@ -23,7 +23,7 @@ class SunLocation {
     return SunLocation(
       name: p.parseString(json['name']),
       sunrise: p.parseDateTime(json['sunrise']),
-      suriseLocal: p.parseString(json['sunriselocal']),
+      sunriseLocal: p.parseString(json['sunriselocal']),
       sunset: p.parseDateTime(json['sunset']),
       sunsetLocal: p.parseString(json['sunsetlocal']),
       timeLeft: p.parseDouble(json['timeleft']),
@@ -37,6 +37,6 @@ class SunLocation {
 
   @override
   String toString() {
-    return 'SunLocation(name: $name, sunrise: $sunrise, suriseLocal: $suriseLocal, sunset: $sunset, sunsetLocal: $sunsetLocal, timeLeft: $timeLeft, timeLeftString: $timeLeftString)';
+    return 'SunLocation(name: $name, sunrise: $sunrise, suriseLocal: $sunriseLocal, sunset: $sunset, sunsetLocal: $sunsetLocal, timeLeft: $timeLeft, timeLeftString: $timeLeftString)';
   }
 }
