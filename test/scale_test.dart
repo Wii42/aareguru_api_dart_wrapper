@@ -36,10 +36,12 @@ void main() {
     });
 
     test('detect range overlap', () {
-      expect(() => Scale([
-        ScaleEntry(value: 1, position: 'start', text: '1'),
-        ScaleEntry(value: 2, position: 'end', text: '2')
-      ]), throwsA(isA<AssertionError>()));
+      expect(
+          () => Scale([
+                ScaleEntry(value: 1, position: 'start', text: '1'),
+                ScaleEntry(value: 2, position: 'end', text: '2')
+              ]),
+          throwsA(isA<AssertionError>()));
     });
 
     test('multiple positions, same value', () {
@@ -50,14 +52,22 @@ void main() {
         ScaleEntry(value: 1, position: 'end', text: 'end'),
         ScaleEntry(value: 1, position: 'unexpected', text: 'unexpected'),
       ]);
-      expect(scale.entries.map((e) => e.text), ['end', 'null', '_','unexpected', 'start']);
+      expect(scale.entries.map((e) => e.text),
+          ['end', 'null', '_', 'unexpected', 'start']);
     });
 
+    test('remove duplicates', () {
+      Scale scale = Scale([
+        ScaleEntry(value: 1, position: 'start', text: '1'),
+        ScaleEntry(value: 1, position: 'start', text: '1'),
+      ]);
+      expect(scale.entries, hasLength(1));
+    });
   });
-  group('selectFittingScaleEntry', ()
-  {
-    test('fitting entry position all start', (){
-      ScaleEntry fittingEntry = ScaleEntry(value: 2, position: 'start', text: 'fitting');
+  group('selectFittingScaleEntry', () {
+    test('fitting entry position all start', () {
+      ScaleEntry fittingEntry =
+          ScaleEntry(value: 2, position: 'start', text: 'fitting');
       Scale scale = Scale([
         ScaleEntry(value: 1, position: 'start', text: '1'),
         fittingEntry,
@@ -67,7 +77,7 @@ void main() {
       expect(scale.selectFittingScaleEntry(2.5), fittingEntry);
     });
 
-    test('value smaller than scale', (){
+    test('value smaller than scale', () {
       Scale scale = Scale([
         ScaleEntry(value: 1, position: 'start', text: '1'),
         ScaleEntry(value: 2, position: 'start', text: '2')
@@ -75,8 +85,9 @@ void main() {
       expect(scale.selectFittingScaleEntry(0), isNull);
     });
 
-    test('all end positions', (){
-      ScaleEntry fittingEntry = ScaleEntry(value: 2, position: 'end', text: 'fitting');
+    test('all end positions', () {
+      ScaleEntry fittingEntry =
+          ScaleEntry(value: 2, position: 'end', text: 'fitting');
       Scale scale = Scale([
         ScaleEntry(value: 1, position: 'end', text: '1'),
         fittingEntry,
@@ -86,7 +97,7 @@ void main() {
       expect(scale.selectFittingScaleEntry(1.5), fittingEntry);
     });
 
-    test('value bigger than scale', (){
+    test('value bigger than scale', () {
       Scale scale = Scale([
         ScaleEntry(value: 1, position: 'end', text: '1'),
         ScaleEntry(value: 2, position: 'end', text: '2')
@@ -94,7 +105,7 @@ void main() {
       expect(scale.selectFittingScaleEntry(3), isNull);
     });
 
-    test('value between entries', (){
+    test('value between entries', () {
       Scale scale = Scale([
         ScaleEntry(value: 1, position: 'end', text: '1'),
         ScaleEntry(value: 3, position: 'start', text: '3')
@@ -102,14 +113,33 @@ void main() {
       expect(scale.selectFittingScaleEntry(2), isNull);
     });
 
-    test('hits entry with no position', (){
-      ScaleEntry fittingEntry = ScaleEntry(value: 2, position: null, text: 'fitting');
+    test('hits entry with no position', () {
+      ScaleEntry fittingEntry =
+          ScaleEntry(value: 2, position: null, text: 'fitting');
       Scale scale = Scale([
         ScaleEntry(value: 1, position: 'start', text: '1'),
         fittingEntry,
         ScaleEntry(value: 3, position: 'end', text: '3')
       ]);
       expect(scale.selectFittingScaleEntry(2), fittingEntry);
+    });
+  });
+
+  group('hasOverlappingPoints', () {
+    test('no overlapping points', () {
+      Scale scale = Scale([
+        ScaleEntry(value: 1, position: 'start', text: '1'),
+        ScaleEntry(value: 2, position: 'start', text: '2')
+      ]);
+      expect(scale.hasOverlappingPoints(), isFalse);
+    });
+
+    test('overlapping points', () {
+      Scale scale = Scale([
+        ScaleEntry(value: 1, position: 'start', text: '1'),
+        ScaleEntry(value: 1, position: 'end', text: '1')
+      ]);
+      expect(scale.hasOverlappingPoints(), isTrue);
     });
   });
 }

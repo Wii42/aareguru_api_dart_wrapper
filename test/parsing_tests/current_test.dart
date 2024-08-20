@@ -52,8 +52,8 @@ void main() {
         () => expect(aare().temperatureForecast2hText, 'Blibt äuä öpe glich'));
     test('height', () => expect(aare().height, 502.84));
     test('temperatureScale',
-        () => expect(aare().temperatureScale, hasLength(2)));
-    test('flowScale', () => expect(aare().flowScale, hasLength(2)));
+        () => expect(aare().temperatureScale, isA<Scale>()));
+    test('flowScale', () => expect(aare().flowScale, isA<Scale>()));
     test(
         'historicalTempMax', () => expect(aare().historicalTempMax, isNotNull));
   });
@@ -64,6 +64,12 @@ void main() {
     test('coordinate', () => expect(coordinates, isNotNull));
     test('aare', () => expect(coordinates()?.latitude, 46.93));
     test('aare', () => expect(coordinates()?.longitude, 7.45));
+  });
+
+  group('Scale', () {
+    Scale scale() => Scale.fromJson(mockJson['aare']['temperature_scale']);
+    test('scale', () => expect(scale, isNotNull));
+    test('entries', () => expect(scale().entries, hasLength(2)));
   });
 
   group('ScaleEntry', () {

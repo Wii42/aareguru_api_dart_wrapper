@@ -20,3 +20,8 @@
 - Added tests for parsing of all models
 - Fixed errors discovered by tests
 - Moved coordinates from custom Coordinate class to `package:latlong2` `LatLng` class
+
+## 0.3.0 
+
+- Added `Scale` class to replace `List<ScaleEntry>` to add functionality (eg. selectFittingScaleEntry)
+- Added tests for `Scale` class and `ScaleEntry` ( especially `ScaleEntry.compareTo`)

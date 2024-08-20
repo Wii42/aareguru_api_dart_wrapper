@@ -1,5 +1,7 @@
 import 'package:aareguru_api/aareguru_api.dart';
 
+import '../json_parser.dart';
+
 /// A scale is a list of [ScaleEntry] objects. The range of each ScaleEntry is defined by the [value] field at one side and the next ScaleEntry at the other side, the other side being defined by the [position] field.
 class Scale<T extends ScaleEntry> {
   /// Entries of the scale, expected to be sorted.
@@ -10,7 +12,10 @@ class Scale<T extends ScaleEntry> {
     _assertScaleIsValid();
   }
 
-  List<T> _prepareEntries(Iterable<T> entries) => List.of(entries)..sort();
+  /// Prepares the entries by sorting them, according to the [compareTo] method of the [ScaleEntry] class.
+  /// Also removes duplicates.
+  List<T> _prepareEntries(Iterable<T> entries) =>
+      List.of(entries.toSet())..sort();
 
   /// Entries of the scale.
   ///
@@ -64,5 +69,24 @@ class Scale<T extends ScaleEntry> {
 
   void _assertScaleIsValid() {
     assert(isScaleValid(), 'Scale is has overlapping entries');
+  }
+
+  /// Checks if the scale has overlapping entries. Scale can still be valid if the overlapping entries have the same value.
+  bool hasOverlappingPoints() {
+    T? entryBefore;
+    for (T entry in _entries) {
+      if (entryBefore?.value == entry.value) {
+        return true;
+      }
+      entryBefore = entry;
+    }
+    return false;
+  }
+
+  static Scale fromJson(List<dynamic> json) {
+    JsonParser p = JsonParser();
+    List<ScaleEntry>? entries =
+        p.parseList<ScaleEntry>(json, (v) => ScaleEntry.fromJson(v));
+    return Scale<ScaleEntry>(entries ?? []);
   }
 }

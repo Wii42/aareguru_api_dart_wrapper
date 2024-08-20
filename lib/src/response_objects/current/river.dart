@@ -1,5 +1,6 @@
 import 'package:latlong2/latlong.dart';
 
+import '../../../aareguru_api.dart';
 import '../json_parser.dart';
 import 'scale_entry.dart';
 import 'value_at_time.dart';
@@ -20,8 +21,8 @@ class River {
   double? temperatureForecast2h; // in API "forecast2h"
   String? temperatureForecast2hText; // in API "forecast2h_text"
   double? height;
-  List<ScaleEntry>? temperatureScale; // in API "temperature_scale"
-  List<ScaleEntry>? flowScale; // in API "flow_scale"
+  Scale? temperatureScale; // in API "temperature_scale"
+  Scale? flowScale; // in API "flow_scale"
   ValueAtTime? historicalTempMax; // in API "historical_temp_max"
 
   River({
@@ -63,10 +64,10 @@ class River {
       temperatureForecast2h: p.parseDouble(json['forecast2h']),
       temperatureForecast2hText: p.parseString(json['forecast2h_text']),
       height: p.parseDouble(json['height']),
-      temperatureScale: p.parseList<ScaleEntry>(
-          json['temperature_scale'], (v) => ScaleEntry.fromJson(v)),
-      flowScale: p.parseList<ScaleEntry>(
-          json['flow_scale'], (v) => ScaleEntry.fromJson(v)),
+      temperatureScale: p.parseObject<Scale>(
+          json['temperature_scale'], (v) => Scale.fromJson(v)),
+      flowScale:
+          p.parseObject<Scale>(json['flow_scale'], (v) => Scale.fromJson(v)),
       historicalTempMax: p.parseObject(
           json['historical_temp_max'], (v) => ValueAtTime.fromJson(v)),
     );
