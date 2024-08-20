@@ -29,7 +29,7 @@ class Scale<T extends ScaleEntry> {
 
   /// Returns the [ScaleEntry] object in the range of which the given [value] lies.
   /// If no such entry exists, null is returned.
-  T? selectFittingScaleEntry(double value) {
+  T? selectFittingScaleEntry(num value) {
     T? entryBelow;
     T? entryAbove;
     for (T entry in _entries) {
