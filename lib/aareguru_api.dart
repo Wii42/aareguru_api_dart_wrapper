@@ -13,6 +13,7 @@ export 'src/response_objects/current/current_weather.dart';
 export 'src/response_objects/current/notification.dart';
 export 'src/response_objects/current/river.dart';
 export 'src/response_objects/current/river_at_time.dart';
+export 'src/response_objects/current/scale.dart';
 export 'src/response_objects/current/scale_entry.dart';
 export 'src/response_objects/current/sun.dart';
 export 'src/response_objects/current/sun_location.dart';
