@@ -2,7 +2,9 @@ import 'package:aareguru_api/aareguru_api.dart';
 
 import '../json_parser.dart';
 
-/// A scale is a list of [ScaleEntry] objects. The range of each ScaleEntry is defined by the [value] field at one side and the next ScaleEntry at the other side, the other side being defined by the [position] field.
+/// A scale is a list of [ScaleEntry] objects. The range of each ScaleEntry is
+/// defined by the [value] field at one side and the next ScaleEntry at the other
+/// side, the other side being defined by the [position] field.
 class Scale<T extends ScaleEntry> {
   /// Entries of the scale, expected to be sorted.
   late List<T> _entries;

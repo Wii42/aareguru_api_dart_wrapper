@@ -31,4 +31,15 @@ class SunPerDay {
   String toString() {
     return 'SunPerDay(day: $day, dayShort: $dayShort, sunTotal: $sunTotal, sunRelative: $sunRelative)';
   }
+
+  Duration? get sunDuration {
+    if (sunTotal == null) {
+      return null;
+    }
+    List<String> parts = sunTotal!.split(':');
+    if (parts.length != 2) {
+      return null;
+    }
+    return Duration(hours: int.parse(parts[0]), minutes: int.parse(parts[1]));
+  }
 }
