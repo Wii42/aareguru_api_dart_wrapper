@@ -55,6 +55,6 @@ Some fields have been renamed in comparison to the API to better clarify their m
 
 ## License
 
-This package is licensed under the  GNU GPLv3. See the [LICENCE](LICENCE) file for details.
+This package is licensed under the  GNU GPLv3. See the [LICENSE](LICENSE) file for details.
 
 
