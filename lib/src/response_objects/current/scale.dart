@@ -1,6 +1,7 @@
-import 'package:aareguru_api/aareguru_api.dart';
+
 
 import '../json_parser.dart';
+import 'scale_entry.dart';
 
 /// A scale is a list of [ScaleEntry] objects. The range of each ScaleEntry is
 /// defined by the [value] field at one side and the next ScaleEntry at the other

@@ -24,7 +24,7 @@ void main() {
     test('coordinates', () => expect(city().coordinates, isNotNull));
     test('aareTemperature', () => expect(city().aareTemperature, 8.3));
     test('aarePreciceTemperature',
-        () => expect(city().aarePreciceTemperature, 8.29));
+        () => expect(city().aarePreciseTemperature, 8.29));
     test('weatherSymbol', () => expect(city().weatherSymbol, '10'));
     test('dailyMinimumAirTemperature',
         () => expect(city().dailyMinimumAirTemperature, 14));

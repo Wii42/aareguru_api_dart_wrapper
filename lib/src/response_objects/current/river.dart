@@ -1,8 +1,7 @@
 import 'package:latlong2/latlong.dart';
 
-import '../../../aareguru_api.dart';
 import '../json_parser.dart';
-import 'scale_entry.dart';
+import 'scale.dart';
 import 'value_at_time.dart';
 
 class River {

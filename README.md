@@ -43,11 +43,15 @@ import 'package:aareguru_api/aareguru_api.dart';
 ```
 
 
-For examples see the [example](example/aareguru_api_example.dart)
+For examples see the [example](example/aareguru_api_example.dart).
 
 ## Note
 
 This package is still in development and may not be stable. Breaking changes may occur in every future version until the first stable release.
+
+See the [CHANGELOG](CHANGELOG.md) for details about the changes in each version.
+
+Some fields have been renamed in comparison to the API to better clarify their meaning and conform to camelCase. For example, 'aare' in [Today](lib/src/response_objects/today.dart) is now 'aareTemperature' and 'longname' in [City](lib/src/response_objects/city.dart) is now 'longName'. If a field has been renamed, is is specified in the documentation for the field. For example
 
 ## License
 

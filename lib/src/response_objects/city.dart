@@ -1,12 +1,12 @@
-import 'package:aareguru_api/aareguru_api.dart';
 import 'package:aareguru_api/src/requests/current_request.dart';
 import 'package:aareguru_api/src/requests/today_request.dart';
 import 'package:aareguru_api/src/requests/widget_request.dart';
-import 'package:aareguru_api/src/response_objects/widget.dart';
 import 'package:latlong2/latlong.dart';
+
 import 'current/current.dart';
 import 'json_parser.dart';
 import 'today.dart';
+import 'widget.dart';
 
 class City {
   ///  Unique identifier of the city.
@@ -39,7 +39,7 @@ class City {
   /// Current temperature of the Aare in °C, not rounded precise.
   ///
   /// Api field name: <code>aare_prec</code>
-  double? aarePreciceTemperature;
+  double? aarePreciseTemperature;
 
   /// Weather forecast as symbol.
   /// See [legend](https://meteotest.ch/en/weather-api/wetter-api-dokumentation/weather-symbols).
@@ -88,7 +88,7 @@ class City {
     this.longName,
     this.coordinates,
     this.aareTemperature,
-    this.aarePreciceTemperature,
+    this.aarePreciseTemperature,
     this.weatherSymbol,
     this.dailyMinimumAirTemperature,
     this.dailyMaximumAirTemperature,
@@ -107,7 +107,7 @@ class City {
       longName: json['longname'].toString(),
       coordinates: p.parseLatLng(json['coordinates']),
       aareTemperature: p.parseDouble(json['aare']),
-      aarePreciceTemperature: p.parseDouble(json['aare_prec']),
+      aarePreciseTemperature: p.parseDouble(json['aare_prec']),
       weatherSymbol: p.parseString(json['sy']),
       dailyMinimumAirTemperature: p.parseDouble(json['tn']),
       dailyMaximumAirTemperature: p.parseDouble(json['tx']),
@@ -143,7 +143,7 @@ class City {
   String toString() {
     return 'City{city: $city, name: $name, longName: $longName, '
         'coordinates: $coordinates, aareTemperature: $aareTemperature, '
-        'aarePreciseTemperature: $aarePreciceTemperature, '
+        'aarePreciseTemperature: $aarePreciseTemperature, '
         'weatherSymbol: $weatherSymbol, '
         'dailyMinimumAirTemperature: '
         '$dailyMinimumAirTemperature, '

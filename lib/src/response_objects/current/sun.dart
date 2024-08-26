@@ -17,8 +17,8 @@ class Sun {
     JsonParser p = JsonParser();
     return Sun(
       today: p.parseObject(json['today'], (dynamic e) => SunPerDay.fromJson(e)),
-      forecast:
-          p.parseList(json['forecast'].values, (dynamic e) => SunPerDay.fromJson(e)),
+      forecast: p.parseList(
+          json['forecast'].values, (dynamic e) => SunPerDay.fromJson(e)),
       sunLocations: p.parseList(
           json['sunlocations'], (dynamic e) => SunLocation.fromJson(e)),
     );

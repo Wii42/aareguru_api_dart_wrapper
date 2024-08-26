@@ -27,4 +27,13 @@
 - Added tests for `Scale` class and `ScaleEntry` ( especially `ScaleEntry.compareTo`)
 
 ### 0.3.0+1
-selectFittingScaleEntry switched parameter type from double to num
+selectFittingScaleEntry switched parameter type from double to 
+
+## 0.3.1
+
+- Added documentation for some classes
+- Wrote Readme
+- Added example
+- renamed 'CurrentWeather.currentTemperature' to 'CurrentWeather.temperature'
+- renamed 'City.forecast' to 'City.hasAareTemperatureForecast'
+- renamed 'City.aarePreciceTemperature' to 'City.aarePreciseTemperature'
