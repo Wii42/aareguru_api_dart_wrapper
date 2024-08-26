@@ -56,7 +56,12 @@ void main() async {
   // every request method has also a corresponding 'WithValues' method, allows
   // to specify the values that should be returned by the API.
   //For example, to get simply the current temperature and flow of the Aare in Bern:
-  List<String> currentBernTemperature = await api.currentValues(Cities.bern.name, ['aare.temperature', 'aare.flow']);
-  print('Current temperature of the Aare in Bern: ${currentBernTemperature[0]}°C');
-  print('Current water flow of the Aare in Bern: ${currentBernTemperature[1]}m³/s');
+  List<String> currentBernTemperature = await api
+      .currentValues(Cities.bern.name, ['aare.temperature', 'aare.flow']);
+  // note that the names of the fields in values are those fro the original API,
+  // not the ones renamed by this wrapper.
+  print(
+      'Current temperature of the Aare in Bern: ${currentBernTemperature[0]}°C');
+  print(
+      'Current water flow of the Aare in Bern: ${currentBernTemperature[1]}m³/s');
 }
