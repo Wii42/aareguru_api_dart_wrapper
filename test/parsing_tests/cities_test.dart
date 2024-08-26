@@ -30,7 +30,7 @@ void main() {
         () => expect(city().dailyMinimumAirTemperature, 14));
     test('dailyMaximumAirTemperature',
         () => expect(city().dailyMaximumAirTemperature, 21));
-    test('forecast', () => expect(city().forecast, false));
+    test('forecast', () => expect(city().hasAareTemperatureForecast, false));
     test('time', () => expect(city().time, DateTime(2024, 8, 19, 22, 20, 0)));
     test(
         'url',

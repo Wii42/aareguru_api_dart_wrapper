@@ -10,34 +10,47 @@ For general information about developing packages, see the Dart guide for
 and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
+# Aare.guru API Dart Wrapper
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+Wrapper for the Dart language of the Aare.guru API. This API provides infos about bathing spots in the Aare river in Switzerland.
 
-## Features
+This package provides a type-safe way to interact with the Aare.guru API. It is written in Dart and can be used in any Dart project.
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+## Aare.guru?
+
+Look here: [Aare.guru](https://aare.guru) <br>
+API documentation: [Aare.guru API](https://aareguru.existenz.ch/)
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Import the package in your dart project.
+
+Add the following to your `pubspec.yaml`:
+
+```yaml
+dependencies:
+  aareguru_api:
+    git: https://github.com/Wii42/aareguru_api_dart_wrapper
+```
+
+Then run `dart pub get` to install the package, or `flutter pub get` if you are using Flutter.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
+Now in your Dart code, you can use:
 ```dart
-const like = 'sample';
+import 'package:aareguru_api/aareguru_api.dart';
 ```
 
-## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+For examples see the [example](example/aareguru_api_example.dart)
+
+## Note
+
+This package is still in development and may not be stable. Breaking changes may occur in every future version until the first stable release.
+
+## License
+
+This package is licensed under the  GNU GPLv3. See the [LICENCE](LICENCE) file for details.
 
 
-## TODO
-switch from Coordinates to LatLng

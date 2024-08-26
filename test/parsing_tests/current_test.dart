@@ -114,7 +114,7 @@ void main() {
         CurrentWeather.fromJson(mockJson['weather']['current']);
     test('currentWeather', () => expect(currentWeather, isNotNull));
     test('currentTemperature',
-        () => expect(currentWeather().currentTemperature, 20.5));
+        () => expect(currentWeather().temperature, 20.5));
     test('rainfall', () => expect(currentWeather().rainfall, 1));
     test('rainfallReal', () => expect(currentWeather().rainfallReal, 1.2));
     test(

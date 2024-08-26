@@ -24,6 +24,12 @@ class AareGuruApi {
   /// Version of the app which uses the API
   String? appVersion;
 
+  /// Wrapper for Aare.guru API v2018 (current)
+  /// [OpenAPI documentation](https://aareguru.existenz.ch/openapi/)
+  /// [Aare.guru API homepage](https://aareguru.existenz.ch/)
+  /// If the [values] parameter shall be used, use the method ending with 'Values',  for example [citiesValues].
+  ///
+  /// [appName] and [appVersion] are optional, but recommended. They are appended to every request as query parameters.
   AareGuruApi({this.appName, this.appVersion});
 
   /// Ortsliste <br>

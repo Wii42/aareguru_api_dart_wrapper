@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 /// [requestWithValues] methods.
 /// It is not designed to be called used directly by the user of the library and
 /// should be wrapped by for example [AareGuruApi].
+/// [T] is the type of the object that is returned by the request.
 abstract class ApiRequest<T extends Object> {
   final String host;
   final String apiPath;

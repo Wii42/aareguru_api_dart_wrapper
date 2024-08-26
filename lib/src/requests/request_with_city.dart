@@ -1,5 +1,6 @@
 import 'api_request.dart';
 
+/// Base class for requests that require a city parameter.
 abstract class RequestWithCity<T extends Object> extends ApiRequest<T> {
   final String city;
 
