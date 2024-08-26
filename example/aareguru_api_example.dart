@@ -5,7 +5,7 @@ void main() async {
   // The appName and appVersion parameters are optional,
   // but should be set to identify your application.
   AareGuruApi api = AareGuruApi(
-      appName: 'aareguru_api_dart_wrapper_example', appVersion: '0.3.0+1');
+      appName: 'aareguru_api_dart_wrapper_example', appVersion: '0.3.1');
 
   // Get a list of all cities.
   List<City> cities = await api.cities();

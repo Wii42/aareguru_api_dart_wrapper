@@ -1,6 +1,6 @@
 name: aareguru_api
 description: A Dart wrapper for the Aare.guru API
-version: 0.3.0+1
+version: 0.3.1
 repository: https://github.com/Wii42/aareguru_api_dart_wrapper
 
 environment:
