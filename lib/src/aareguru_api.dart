@@ -5,9 +5,10 @@ import 'requests/widget_request.dart';
 import 'response_objects/city.dart';
 import 'response_objects/current/current.dart';
 import 'response_objects/today.dart';
-import 'response_objects/widget.dart';
+import 'response_objects/widget_data.dart';
 
 /// Wrapper for Aare.guru API v2018 (current)
+///
 /// [OpenAPI documentation](https://aareguru.existenz.ch/openapi/)
 /// [Aare.guru API homepage](https://aareguru.existenz.ch/)
 /// If the [values] parameter shall be used, use the method ending with 'Values',  for example [citiesValues].

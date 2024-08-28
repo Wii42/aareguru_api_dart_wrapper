@@ -4,7 +4,9 @@ import 'package:latlong2/latlong.dart';
 
 import 'city_widget.dart';
 
+/// Class which provides methods to parse JSON objects consistently.
 class JsonParser {
+  /// Parses a JSON object to a Dart object, using the provided [fromJson] function.
   T? parseObject<T>(dynamic value, T Function(dynamic) fromJson) {
     if (value == null) {
       return null;
@@ -23,7 +25,7 @@ class JsonParser {
   bool? parseBool(dynamic value) =>
       parseObject<bool?>(value, (v) => bool.tryParse(v.toString()));
 
-  /// expects seconds since epoch
+  /// Expects seconds since epoch
   DateTime? parseDateTime(dynamic value) {
     return parseObject<DateTime?>(
         value,

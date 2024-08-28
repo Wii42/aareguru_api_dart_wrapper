@@ -1,4 +1,4 @@
-import 'package:aareguru_api/src/response_objects/widget.dart';
+import 'package:aareguru_api/src/response_objects/widget_data.dart';
 
 import 'api_request.dart';
 

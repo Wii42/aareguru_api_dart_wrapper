@@ -1,15 +1,17 @@
-
-
 import '../json_parser.dart';
 import 'scale_entry.dart';
 
-/// A scale is a list of [ScaleEntry] objects. The range of each ScaleEntry is
+/// A scale is a list of [ScaleEntry] objects.
+///
+/// The range of each ScaleEntry is
 /// defined by the [value] field at one side and the next ScaleEntry at the other
 /// side, the other side being defined by the [position] field.
 class Scale<T extends ScaleEntry> {
   /// Entries of the scale, expected to be sorted.
   late List<T> _entries;
 
+  /// Creates a scale with the given [entries].
+  /// The provided list will not be modified, but copied.
   Scale(Iterable<T> entries) {
     _entries = _prepareEntries(entries);
     _assertScaleIsValid();
@@ -86,6 +88,7 @@ class Scale<T extends ScaleEntry> {
     return false;
   }
 
+  /// Creates a scale from a JSON list.
   static Scale fromJson(List<dynamic> json) {
     JsonParser p = JsonParser();
     List<ScaleEntry>? entries =

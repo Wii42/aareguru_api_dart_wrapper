@@ -6,8 +6,10 @@ import 'package:latlong2/latlong.dart';
 import 'current/current.dart';
 import 'json_parser.dart';
 import 'today.dart';
-import 'widget.dart';
+import 'widget_data.dart';
 
+/// Core infos about a city and the current Aare data.
+/// Usually in a list of cities.
 class City {
   ///  Unique identifier of the city.
   ///
@@ -52,17 +54,15 @@ class City {
   /// Daily minimum air temperature in °C.
   ///
   /// Original API field name: <code>tn</code>
-  double? dailyMinimumAirTemperature;
+  double? dailyMinAirTemperature;
 
   /// Daily maximum air temperature in °C.
   ///
   /// Original API field name: <code>tx</code>
-  double? dailyMaximumAirTemperature;
+  double? dailyMaxAirTemperature;
 
   /// Aare temperature forecast flag. Currently always <code>false</code>.
-  ///
-  /// Original API field name: <code>forecast</code>
-  bool? hasAareTemperatureForecast;
+  bool? forecast;
 
   /// Timestamp of the data.
   DateTime? time;
@@ -90,15 +90,16 @@ class City {
     this.aareTemperature,
     this.aarePreciseTemperature,
     this.weatherSymbol,
-    this.dailyMinimumAirTemperature,
-    this.dailyMaximumAirTemperature,
-    this.hasAareTemperatureForecast,
+    this.dailyMinAirTemperature,
+    this.dailyMaxAirTemperature,
+    this.forecast,
     this.time,
     this.url,
     this.today,
     this.widget,
   });
 
+  /// Creates a City object from a JSON object.
   factory City.fromJson(Map<String, dynamic> json) {
     JsonParser p = JsonParser();
     return City(
@@ -109,9 +110,9 @@ class City {
       aareTemperature: p.parseDouble(json['aare']),
       aarePreciseTemperature: p.parseDouble(json['aare_prec']),
       weatherSymbol: p.parseString(json['sy']),
-      dailyMinimumAirTemperature: p.parseDouble(json['tn']),
-      dailyMaximumAirTemperature: p.parseDouble(json['tx']),
-      hasAareTemperatureForecast: p.parseBool(json['forecast']),
+      dailyMinAirTemperature: p.parseDouble(json['tn']),
+      dailyMaxAirTemperature: p.parseDouble(json['tx']),
+      forecast: p.parseBool(json['forecast']),
       time: p.parseDateTime(json['time']),
       url: p.parseUri(json['url']),
       today: p.parseUri(json['today']),
@@ -119,6 +120,7 @@ class City {
     );
   }
 
+  /// Creates a list of City objects from a JSON list.
   static List<City> fromJsonList(List<dynamic> json) {
     return json.map((value) => City.fromJson(value)).toList();
   }
@@ -146,9 +148,9 @@ class City {
         'aarePreciseTemperature: $aarePreciseTemperature, '
         'weatherSymbol: $weatherSymbol, '
         'dailyMinimumAirTemperature: '
-        '$dailyMinimumAirTemperature, '
-        'dailyMaximumAirTemperature: $dailyMaximumAirTemperature, '
-        'forecast: $hasAareTemperatureForecast, '
+        '$dailyMinAirTemperature, '
+        'dailyMaximumAirTemperature: $dailyMaxAirTemperature, '
+        'forecast: $forecast, '
         'time: $time, url: $url, today: $today, widget: $widget}';
   }
 }

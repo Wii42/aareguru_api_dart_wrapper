@@ -1,8 +1,19 @@
 import '../json_parser.dart';
 
+/// A scale entry is a range within a scale.
+///
+/// Normally used in a [Scale] object.
+/// The scale entry is defined by the [value] field as one bound of the range.
+/// [position] defines if [value] is the lower or upper bound of the range.
 class ScaleEntry implements Comparable<ScaleEntry> {
+  /// One bound of the range of the scale entry.
   double? value;
+
+  /// Text describing the range.
   String? text;
+
+  /// Defines if [value] is the lower or upper bound of the range
+  /// Is expected to be 'start' or 'end'.
   String? position;
 
   ScaleEntry({
@@ -11,6 +22,7 @@ class ScaleEntry implements Comparable<ScaleEntry> {
     this.position,
   });
 
+  /// Creates a [ScaleEntry] from a JSON object.
   factory ScaleEntry.fromJson(Map<String, dynamic> json) {
     JsonParser p = JsonParser();
     return ScaleEntry(
@@ -20,6 +32,7 @@ class ScaleEntry implements Comparable<ScaleEntry> {
     );
   }
 
+  /// Creates a list of [ScaleEntry] from a JSON list.
   static List<ScaleEntry> listFromJson(List<dynamic> json) {
     return json.map((value) => ScaleEntry.fromJson(value)).toList();
   }

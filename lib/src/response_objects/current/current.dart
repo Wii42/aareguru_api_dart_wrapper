@@ -7,13 +7,32 @@ import 'swimming_channel.dart';
 import 'weather.dart';
 import 'weather_at_time.dart';
 
+/// Maximal data for a given city, with current, past and predicted data.
+///
+/// Contains data about the Aare, the weather, the sun and the swimming channel.
 class Current {
+  /// Current data of the Aare. For more details see [River].
   River? aare;
-  List<RiverAtTime>? aarePast; // in API "aarepast"
+
+  /// Past flow and temperature data of the Aare. Usually for the last 48 hours.
+  ///
+  /// Original API field name: <code>aarepast</code>
+  List<RiverAtTime>? aarePast;
+
+  /// Current weather data prognoses. For more details see [Weather].
   Weather? weather;
-  List<WeatherAtTime>? weatherPast; // in API "weatherpast"
+
+  /// Past air temperature data. Usually for the last 48 hours.
+  ///
+  /// Original API field name: <code>weatherpast</code>
+  List<WeatherAtTime>? weatherPast;
+
+  /// Current sun data and prognoses. For more details see [Sun].
   Sun? sun;
+
+  /// Infos about the swimming channel 'bueber' to exit the Aare in the Marzili.
   SwimmingChannel? bueber;
+
   Notification? notification;
 
   Current({
@@ -26,6 +45,7 @@ class Current {
     this.notification,
   });
 
+  /// Creates a [Current] from a JSON object.
   factory Current.fromJson(Map<String, dynamic> json) {
     JsonParser p = JsonParser();
     return Current(

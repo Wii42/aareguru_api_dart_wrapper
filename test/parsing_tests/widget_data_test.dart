@@ -23,16 +23,16 @@ void main() {
     test('timestamp',
         () => expect(cityWidget().timestamp, DateTime(2024, 8, 19, 23, 10, 0)));
     test('timeString', () => expect(cityWidget().timeString, '23:10'));
-    test('waterTemperature', () => expect(cityWidget().waterTemperature, 17.2));
+    test('waterTemperature', () => expect(cityWidget().aareTemperature, 17.2));
     test('waterTemperatureText',
-        () => expect(cityWidget().waterTemperatureText, 'Me chas wage'));
+        () => expect(cityWidget().aareTemperatureText, 'Me chas wage'));
     test('waterTemperatureTextShort',
-        () => expect(cityWidget().waterTemperatureTextShort, 'Me chas wage'));
+        () => expect(cityWidget().aareTemperatureTextShort, 'Me chas wage'));
     test('flow', () => expect(cityWidget().flow, 204));
     test('flowText', () => expect(cityWidget().flowText, 'ender viu'));
     test('flowDangerLevel', () => expect(cityWidget().flowDangerLevel, 1));
     test('waterTemperatureForecast2h',
-        () => expect(cityWidget().waterTemperatureForecast2h, 17.3));
+        () => expect(cityWidget().aareTemperatureForecast2h, 17.3));
     test('airTemperature', () => expect(cityWidget().airTemperature, 16));
     test('sunTotal', () => expect(cityWidget().sunTotal, '3:52'));
   });

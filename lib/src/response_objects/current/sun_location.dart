@@ -1,13 +1,44 @@
 import '../json_parser.dart';
 
+/// Sunrise and sunset times for a location.
 class SunLocation {
+  /// Display name of the location.
+  ///
+  /// Example: "Marzili"
   String? name;
+
+  /// Timestamp of the sunrise.
   DateTime? sunrise;
-  String? sunriseLocal; // in API "sunriselocal"
+
+  /// Time string of the sunrise.
+  ///
+  /// Example: "06:00"
+  ///
+  /// Original API field name: <code>sunriselocal</code>
+  String? sunriseLocal;
+
+  /// Timestamp of the sunset.
   DateTime? sunset;
-  String? sunsetLocal; // in API "sunsetlocal"
-  Duration? timeLeft; // in API "timeleft"
-  String? timeLeftString; // in API "timeleftstring"
+
+  /// Time string of the sunset.
+  ///
+  /// Example: "20:00"
+  ///
+  /// Original API field name: <code>sunsetlocal</code>
+  String? sunsetLocal;
+
+  /// Time left until the next sunset.
+  ///
+  /// Original API field name: <code>timeleft</code>
+  Duration? timeLeft;
+
+  /// String representation of the time left until the next sunset.
+  ///
+  /// Example: "3:30:00
+  ///
+  /// Original API field name: <code>timeleftstring</code>"
+  String? timeLeftString;
+
   SunLocation({
     this.name,
     this.sunrise,
@@ -18,6 +49,7 @@ class SunLocation {
     this.timeLeftString,
   });
 
+  /// Creates a [SunLocation] from a JSON object.
   factory SunLocation.fromJson(Map<String, dynamic> json) {
     JsonParser p = JsonParser();
     return SunLocation(
@@ -31,6 +63,7 @@ class SunLocation {
     );
   }
 
+  /// Creates a list of [SunLocation] from a JSON object.
   static List<SunLocation> listFromJson(List<dynamic> json) {
     return json.map((value) => SunLocation.fromJson(value)).toList();
   }

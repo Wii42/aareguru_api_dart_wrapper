@@ -11,6 +11,7 @@ class Notification {
     this.event,
   });
 
+  /// Creates a [Notification] from a JSON object.
   factory Notification.fromJson(Map<String, dynamic> json) {
     JsonParser p = JsonParser();
     return Notification(

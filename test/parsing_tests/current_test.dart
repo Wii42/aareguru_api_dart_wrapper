@@ -137,11 +137,11 @@ void main() {
     TimeOfDayWeather timeOfDayWeather() =>
         TimeOfDayWeather.fromJson(mockJson['weather']['today']['v']);
     test('timeOfDayWeather', () => expect(timeOfDayWeather, isNotNull));
-    test('weatherSymbol', () => expect(timeOfDayWeather().weatherSymbol, 'b'));
+    test('weatherSymbol', () => expect(timeOfDayWeather().symbolLetter, 'b'));
     test('weatherText',
-        () => expect(timeOfDayWeather().weatherText, 'zimlech sunnig'));
+        () => expect(timeOfDayWeather().symbolText, 'zimlech sunnig'));
     test(
-        'weatherSymbol2', () => expect(timeOfDayWeather().weatherSymbol2, '2'));
+        'weatherSymbol2', () => expect(timeOfDayWeather().symbol, '2'));
     test('temperature', () => expect(timeOfDayWeather().temperature, 18));
     test('rainfall', () => expect(timeOfDayWeather().rainfall, 0));
     test('rainfallRisk', () => expect(timeOfDayWeather().rainfallRisk, 20));
@@ -157,10 +157,10 @@ void main() {
         'timestamp',
         () => expect(
             weatherForecast().timestamp, DateTime(2024, 8, 20, 18, 25, 0)));
-    test('symbol', () => expect(weatherForecast().symbol, 'b'));
+    test('symbol', () => expect(weatherForecast().symbolLetter, 'b'));
     test('symbolText',
         () => expect(weatherForecast().symbolText, 'zimlech sunnig'));
-    test('symbol2', () => expect(weatherForecast().symbol2, '2'));
+    test('symbol2', () => expect(weatherForecast().symbol, '2'));
     test('maxTemperature', () => expect(weatherForecast().maxTemperature, 26));
     test('minTemperature', () => expect(weatherForecast().minTemperature, 13));
     test('rainfall', () => expect(weatherForecast().rainfall, 0));

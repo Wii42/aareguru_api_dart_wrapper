@@ -1,11 +1,31 @@
 import '../json_parser.dart';
 
+/// Contains the current weather data, like temperature and rainfall.
 class CurrentWeather {
-  double? temperature; // in API "tt"
-  int? rainfall; // in API "rr"
-  double? rainfallReal; // in API "rrreal"
+  /// The current air temperature in °C.
+  ///
+  /// Original API field name: <code>tt</code>
+  double? temperature;
+
+  /// The current rainfall in mm/10min, rounded to integers.
+  ///
+  /// Original API field name: <code>rr</code>
+  int? rainfall;
+
+  /// The current rainfall in mm/10min, rounded to one decimal place.
+  ///
+  /// Original API field name: <code>rrreal</code>
+  double? rainfallReal;
+
+  /// Timestamp of the data.
   DateTime? timestamp;
-  String? timeString; // in API "timestring"
+
+  /// String representation of the timestamp in the format 'HH:mm'.
+  ///
+  /// Example: '14:00'
+  ///
+  /// Original API field name: <code>timestring</code>
+  String? timeString;
 
   CurrentWeather({
     this.temperature,
@@ -15,6 +35,7 @@ class CurrentWeather {
     this.timeString,
   });
 
+  /// Creates a [CurrentWeather] from a JSON object.
   factory CurrentWeather.fromJson(Map<String, dynamic> json) {
     JsonParser p = JsonParser();
     return CurrentWeather(

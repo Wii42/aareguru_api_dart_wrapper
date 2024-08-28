@@ -3,9 +3,15 @@ import 'current_weather.dart';
 import 'weather_forecast.dart';
 import 'weather_today.dart';
 
+/// Contains the current and forecast weather data.
 class Weather {
+  /// The current weather data.
   CurrentWeather? current;
+
+  /// The weather forecast for today.
   WeatherToday? today;
+
+  /// The weather forecast for the next days.
   List<WeatherForecast>? forecast;
 
   Weather({
@@ -14,6 +20,7 @@ class Weather {
     this.forecast,
   });
 
+  /// Creates a [Weather] from a JSON object.
   factory Weather.fromJson(Map<String, dynamic> json) {
     JsonParser p = JsonParser();
     return Weather(

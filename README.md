@@ -12,7 +12,7 @@ and the Flutter guide for
 -->
 # Aare.guru API Dart Wrapper
 
-Wrapper for the Dart language of the Aare.guru API. This API provides infos about bathing spots in the Aare river in Switzerland.
+Unofficial wrapper of the Aare.guru API for the Dart language. Aare.guru provides infos about bathing spots in the Aare river in Switzerland.
 
 This package provides a type-safe way to interact with the Aare.guru API. It is written in Dart and can be used in any Dart project.
 
@@ -51,7 +51,7 @@ This package is still in development and may not be stable. Breaking changes may
 
 See the [CHANGELOG](CHANGELOG.md) for details about the changes in each version.
 
-Some fields have been renamed in comparison to the API to better clarify their meaning and conform to camelCase. For example, 'aare' in [Today](lib/src/response_objects/today.dart) is now 'aareTemperature' and 'longname' in [City](lib/src/response_objects/city.dart) is now 'longName'. If a field has been renamed, is is specified in the documentation for the field. For example
+Some fields have been renamed in comparison to the API to better clarify their meaning and conform to camelCase. For example, 'aare' in [Today](lib/src/response_objects/today.dart) is now 'aareTemperature' and 'longname' in [City](lib/src/response_objects/city.dart) is now 'longName'. If a field has been renamed, is is specified in the documentation for the field. For example ```Original API field name: <code>text_short</code>```. If nothing is specified, the field name is the same as in the API.
 
 ## License
 

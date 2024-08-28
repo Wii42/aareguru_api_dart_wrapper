@@ -1,6 +1,6 @@
-/// Support for doing something awesome.
+/// A typesafe Dart wrapper for the Aare.guru API.
 ///
-/// More dartdocs go here.
+/// Entry point for usage is normally the [AareGuruApi] class.
 library;
 
 export 'src/aareguru_api.dart';
@@ -26,4 +26,4 @@ export 'src/response_objects/current/weather_at_time.dart';
 export 'src/response_objects/current/weather_forecast.dart';
 export 'src/response_objects/current/weather_today.dart';
 export 'src/response_objects/today.dart';
-export 'src/response_objects/widget.dart';
+export 'src/response_objects/widget_data.dart';

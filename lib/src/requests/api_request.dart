@@ -2,18 +2,29 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 
-/// Abstract class for the API request, created to cut down on code duplication
+/// Abstract base class for the API request
+///
+/// Created to cut down on code duplication
 /// between the different API endpoints, especially in the [request] and
 /// [requestWithValues] methods.
 /// It is not designed to be called used directly by the user of the library and
 /// should be wrapped by for example [AareGuruApi].
+///
 /// [T] is the type of the object that is returned by the request.
 abstract class ApiRequest<T extends Object> {
+  /// Host domain of the API
   final String host;
+
+  /// Path to the API on the host
   final String apiPath;
+
+  /// Name of the app which uses the API
   final String? appName;
+
+  /// Version of the app which uses the API
   final String? appVersion;
 
+  /// The endpoint of the request, should be set by the subclass
   String get endpoint;
 
   ApiRequest(this.host, this.apiPath, {this.appName, this.appVersion});

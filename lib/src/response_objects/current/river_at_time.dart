@@ -1,8 +1,14 @@
 import '../json_parser.dart';
 
+/// Contains the flow and temperature data of a river at a given time.
 class RiverAtTime {
+  /// Timestamp of the data.
   DateTime? timestamp;
+
+  ///Flow in m³/s.
   double? flow;
+
+  ///Temperature in °C.
   double? temperature;
 
   RiverAtTime({
@@ -11,6 +17,7 @@ class RiverAtTime {
     this.temperature,
   });
 
+  /// Creates a [RiverAtTime] from a JSON object.
   factory RiverAtTime.fromJson(Map<String, dynamic> json) {
     JsonParser p = JsonParser();
     return RiverAtTime(
@@ -20,6 +27,7 @@ class RiverAtTime {
     );
   }
 
+  /// Creates a list of [RiverAtTime] from a JSON list.
   static List<RiverAtTime> listFromJson(List<dynamic> json) {
     return json.map((value) => RiverAtTime.fromJson(value)).toList();
   }
