@@ -1,6 +1,6 @@
 name: aareguru_api
 description: Unofficial type-safe Dart wrapper for the Aare.guru API. Aare.guru provides infos about bathing spots in the Aare river in Switzerland.
-version: 0.3.1
+version: 0.3.2
 repository: https://github.com/Wii42/aareguru_api_dart_wrapper
 
 environment:

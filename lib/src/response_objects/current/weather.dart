@@ -25,7 +25,8 @@ class Weather {
   });
 
   /// Creates a [Weather] from a JSON object.
-  factory Weather.fromJson(Map<String, dynamic> json) => _$WeatherFromJson(json);
+  factory Weather.fromJson(Map<String, dynamic> json) =>
+      _$WeatherFromJson(json);
 
   @override
   String toString() {

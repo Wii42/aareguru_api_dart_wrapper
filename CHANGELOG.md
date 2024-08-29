@@ -23,7 +23,7 @@
 
 ## 0.3.0 
 
-- Added `Scale` class to replace `List<ScaleEntry>` to add functionality (eg. selectFittingScaleEntry)
+- Added `Scale` class to replace `List<ScaleEntry>` to add functionality (e.g. selectFittingScaleEntry)
 - Added tests for `Scale` class and `ScaleEntry` ( especially `ScaleEntry.compareTo`)
 
 ### 0.3.0+1
@@ -38,7 +38,7 @@ selectFittingScaleEntry switched parameter type from double to
 - renamed 'City.forecast' to 'City.hasAareTemperatureForecast'
 - renamed 'City.aarePreciceTemperature' to 'City.aarePreciseTemperature'
 
-## Latest
+## 0.3.2 (latest)
 - *BREAKING*: renamed some fields to be more uniform across classes
 - added documentation for all classes
 - renamed some fields to be more uniform across classes

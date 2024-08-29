@@ -51,10 +51,10 @@ This package is still in development and may not be stable. Breaking changes may
 
 See the [CHANGELOG](CHANGELOG.md) for details about the changes in each version.
 
-Some fields have been renamed in comparison to the API to better clarify their meaning and conform to camelCase. For example, 'aare' in [Today](lib/src/response_objects/today.dart) is now 'aareTemperature' and 'longname' in [City](lib/src/response_objects/city.dart) is now 'longName'. If a field has been renamed, is is specified in the documentation for the field. For example ```Original API field name: <code>text_short</code>```. If nothing is specified, the field name is the same as in the API.
+Some fields have been renamed in comparison to the API to better clarify their meaning and conform to camelCase. For example, 'aare' in [Today](lib/src/response_objects/today.dart) is now 'aareTemperature' and 'longname' in [City](lib/src/response_objects/city.dart) is now 'longName'. If a field has been renamed, is specified in the documentation for the field. For example ```Original API field name: <code>text_short</code>```. If nothing is specified, the field name is the same as in the API.
 
 ## License
 
-This package is licensed under the  GNU GPLv3. See the [LICENSE](LICENSE) file for details.
+This package is licensed under the GNU GPLv3. See the [LICENSE](LICENSE) file for details.
 
 

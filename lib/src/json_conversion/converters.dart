@@ -168,6 +168,7 @@ class LatLngJsonConverter implements JsonConverter<LatLng?, dynamic> {
 abstract class ListJsonConverter<T>
     implements JsonConverter<List<T>?, dynamic> {
   const ListJsonConverter();
+
   T Function(dynamic) get parseJson;
 
   @override
