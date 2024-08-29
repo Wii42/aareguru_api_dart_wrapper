@@ -37,3 +37,8 @@ selectFittingScaleEntry switched parameter type from double to
 - renamed 'CurrentWeather.currentTemperature' to 'CurrentWeather.temperature'
 - renamed 'City.forecast' to 'City.hasAareTemperatureForecast'
 - renamed 'City.aarePreciceTemperature' to 'City.aarePreciseTemperature'
+
+## Latest
+- added documentation for all classes
+- renamed some fields to be more uniform across classes
+- moved to json_serializable for json parsing

@@ -1,6 +1,5 @@
 import 'package:aareguru_api/json_conversion.dart';
 
-import '../json_parser.dart';
 import 'scale_entry.dart';
 
 /// A scale is a list of [ScaleEntry] objects.

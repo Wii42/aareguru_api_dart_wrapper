@@ -1,8 +1,6 @@
 import 'package:aareguru_api/json_conversion.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../json_parser.dart';
-
 part 'sun_location.g.dart';
 
 /// Sunrise and sunset times for a location.

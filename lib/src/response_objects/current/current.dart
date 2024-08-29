@@ -1,7 +1,6 @@
 import 'package:aareguru_api/json_conversion.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../json_parser.dart';
 import 'notification.dart';
 import 'river.dart';
 import 'river_at_time.dart';

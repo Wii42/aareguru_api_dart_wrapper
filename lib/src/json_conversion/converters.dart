@@ -1,8 +1,11 @@
 import 'package:aareguru_api/aareguru_api.dart';
-import 'package:aareguru_api/src/date_time_seconds_parser.dart';
-import 'package:aareguru_api/src/lat_long_parser.dart';
+import 'package:aareguru_api/src/json_conversion/date_time_seconds_parser.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:latlong2/latlong.dart';
+
+import 'lat_long_parser.dart';
+
+//  provides classes to parse JSON objects consistently and robustly, to avoid runtime errors.
 
 /// Parses a JSON object to a Dart object, using the provided [fromJson] function.
 T? _parseObject<T>(dynamic value, T Function(dynamic) fromJson) {
@@ -77,6 +80,7 @@ class BoolJsonConverter implements JsonConverter<bool?, dynamic> {
   }
 }
 
+/// Expects seconds since epoch
 class DateTimeJsonConverter implements JsonConverter<DateTime?, dynamic> {
   const DateTimeJsonConverter();
 

@@ -1,7 +1,6 @@
 import 'package:aareguru_api/json_conversion.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../json_parser.dart';
 import 'sun_location.dart';
 import 'sun_per_day.dart';
 

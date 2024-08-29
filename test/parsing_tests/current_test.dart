@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:aareguru_api/aareguru_api.dart';
-import 'package:aareguru_api/src/lat_long_parser.dart';
+import 'package:aareguru_api/json_conversion.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:test/test.dart';
 
@@ -26,7 +26,8 @@ void main() {
     test('weatherPast', () => expect(current().weatherPast, hasLength(3)));
     test('sun', () => expect(current().sun, isA<Sun>()));
     test('bueber', () => expect(current().bueber, isA<SwimmingChannel>()));
-    test('notification', () => expect(current().notification, isA<Notification>()));
+    test('notification',
+        () => expect(current().notification, isA<Notification>()));
   });
   group('River', () {
     River aare() => River.fromJson(mockJson['aare']);
@@ -113,8 +114,8 @@ void main() {
     CurrentWeather currentWeather() =>
         CurrentWeather.fromJson(mockJson['weather']['current']);
     test('currentWeather', () => expect(currentWeather, isNotNull));
-    test('currentTemperature',
-        () => expect(currentWeather().temperature, 20.5));
+    test(
+        'currentTemperature', () => expect(currentWeather().temperature, 20.5));
     test('rainfall', () => expect(currentWeather().rainfall, 1));
     test('rainfallReal', () => expect(currentWeather().rainfallReal, 1.2));
     test(
@@ -140,8 +141,7 @@ void main() {
     test('weatherSymbol', () => expect(timeOfDayWeather().symbolLetter, 'b'));
     test('weatherText',
         () => expect(timeOfDayWeather().symbolText, 'zimlech sunnig'));
-    test(
-        'weatherSymbol2', () => expect(timeOfDayWeather().symbol, '2'));
+    test('weatherSymbol2', () => expect(timeOfDayWeather().symbol, '2'));
     test('temperature', () => expect(timeOfDayWeather().temperature, 18));
     test('rainfall', () => expect(timeOfDayWeather().rainfall, 0));
     test('rainfallRisk', () => expect(timeOfDayWeather().rainfallRisk, 20));

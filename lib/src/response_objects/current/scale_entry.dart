@@ -1,7 +1,5 @@
 import 'package:aareguru_api/json_conversion.dart';
 
-import '../json_parser.dart';
-
 part 'scale_entry.g.dart';
 
 /// A scale entry is a range within a scale.

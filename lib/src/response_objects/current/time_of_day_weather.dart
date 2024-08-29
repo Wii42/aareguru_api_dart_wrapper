@@ -1,8 +1,6 @@
 import 'package:aareguru_api/json_conversion.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../json_parser.dart';
-
 part 'time_of_day_weather.g.dart';
 
 ///  /// Weather forecast for a portion of the day, e.g. morning, afternoon, evening.

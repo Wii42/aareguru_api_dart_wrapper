@@ -1,7 +1,6 @@
 import 'package:aareguru_api/json_conversion.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../json_parser.dart';
 import 'time_of_day_weather.dart';
 
 part 'weather_today.g.dart';

@@ -3,4 +3,6 @@
 library;
 
 export 'src/json_conversion/converters.dart';
+export 'src/json_conversion/date_time_seconds_parser.dart';
+export 'src/json_conversion/lat_long_parser.dart';
 export 'src/json_conversion/my_json_serializable.dart';

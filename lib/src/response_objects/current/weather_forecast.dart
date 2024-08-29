@@ -1,8 +1,6 @@
 import 'package:aareguru_api/json_conversion.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../json_parser.dart';
-
 part 'weather_forecast.g.dart';
 
 /// Contains the weather forecast for a specific day.

@@ -1,7 +1,5 @@
 import 'package:aareguru_api/json_conversion.dart';
 
-import '../json_parser.dart';
-
 part 'river_at_time.g.dart';
 
 /// Contains the flow and temperature data of a river at a given time.

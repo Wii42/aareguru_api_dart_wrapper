@@ -2,7 +2,6 @@ import 'package:aareguru_api/json_conversion.dart';
 
 import 'city_key.dart';
 import 'city_widget.dart';
-import 'json_parser.dart';
 
 part 'widget_data.g.dart';
 

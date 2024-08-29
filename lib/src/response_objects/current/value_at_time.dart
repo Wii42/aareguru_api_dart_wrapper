@@ -1,7 +1,5 @@
 import 'package:aareguru_api/json_conversion.dart';
 
-import '../json_parser.dart';
-
 part 'value_at_time.g.dart';
 
 /// Bundles a value with a timestamp.

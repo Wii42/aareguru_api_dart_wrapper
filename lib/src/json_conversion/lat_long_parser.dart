@@ -1,5 +1,4 @@
 import 'package:aareguru_api/json_conversion.dart';
-import 'package:aareguru_api/src/response_objects/json_parser.dart';
 import 'package:latlong2/latlong.dart';
 
 /// Parses a JSON object to a [LatLng] object.

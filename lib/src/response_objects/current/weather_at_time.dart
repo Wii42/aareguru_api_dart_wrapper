@@ -1,8 +1,6 @@
 import 'package:aareguru_api/json_conversion.dart';
 import 'package:json_annotation/json_annotation.dart';
 
-import '../json_parser.dart';
-
 part 'weather_at_time.g.dart';
 
 /// Contains the temperature at a given time.

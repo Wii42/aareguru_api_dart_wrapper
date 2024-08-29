@@ -2,7 +2,6 @@ import 'package:aareguru_api/json_conversion.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:latlong2/latlong.dart';
 
-import '../json_parser.dart';
 import 'scale.dart';
 import 'value_at_time.dart';
 
