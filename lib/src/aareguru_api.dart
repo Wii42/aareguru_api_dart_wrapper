@@ -1,11 +1,5 @@
-import 'requests/cities_request.dart';
-import 'requests/current_request.dart';
-import 'requests/today_request.dart';
-import 'requests/widget_request.dart';
-import 'response_objects/city.dart';
-import 'response_objects/current/current.dart';
-import 'response_objects/today.dart';
-import 'response_objects/widget_data.dart';
+import 'package:aareguru_api/aareguru_api.dart';
+import 'package:aareguru_api/requests.dart';
 
 /// Wrapper for Aare.guru API v2018 (current)
 ///

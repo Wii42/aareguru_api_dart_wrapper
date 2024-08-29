@@ -1,8 +1,8 @@
 import 'package:aareguru_api/aareguru_api.dart';
-import 'package:aareguru_api/src/json_conversion/date_time_seconds_parser.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:latlong2/latlong.dart';
 
+import 'date_time_seconds_parser.dart';
 import 'lat_long_parser.dart';
 
 //  provides classes to parse JSON objects consistently and robustly, to avoid runtime errors.

@@ -7,7 +7,7 @@ part 'swimming_channel.g.dart';
 ///
 /// A swimming channel is an artificial chanel to exit a river,
 /// for example the 'Bueber' in the Marzili public swimming pool in Bern.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class SwimmingChannel {
   /// The state of the swimming channel.
   /// Normally either 'open' or 'closed'.

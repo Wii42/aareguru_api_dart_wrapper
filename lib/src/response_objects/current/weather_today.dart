@@ -6,7 +6,7 @@ import 'time_of_day_weather.dart';
 part 'weather_today.g.dart';
 
 /// Contains the weather data at different times of the day.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class WeatherToday {
   /// The weather in the morning.
   ///

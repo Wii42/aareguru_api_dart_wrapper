@@ -7,7 +7,7 @@ import 'weather_today.dart';
 part 'weather.g.dart';
 
 /// Contains the current and forecast weather data.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class Weather {
   /// The current weather data.
   CurrentWeather? current;

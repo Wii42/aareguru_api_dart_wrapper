@@ -7,7 +7,7 @@ part 'scale_entry.g.dart';
 /// Normally used in a [Scale] object.
 /// The scale entry is defined by the [value] field as one bound of the range.
 /// [position] defines if [value] is the lower or upper bound of the range.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class ScaleEntry implements Comparable<ScaleEntry> {
   /// One bound of the range of the scale entry.
   double? value;

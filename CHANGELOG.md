@@ -39,6 +39,7 @@ selectFittingScaleEntry switched parameter type from double to
 - renamed 'City.aarePreciceTemperature' to 'City.aarePreciseTemperature'
 
 ## Latest
+- *BREAKING*: renamed some fields to be more uniform across classes
 - added documentation for all classes
 - renamed some fields to be more uniform across classes
 - moved to json_serializable for json parsing

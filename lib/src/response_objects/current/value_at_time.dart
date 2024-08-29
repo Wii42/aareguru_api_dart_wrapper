@@ -3,7 +3,7 @@ import 'package:aareguru_api/json_conversion.dart';
 part 'value_at_time.g.dart';
 
 /// Bundles a value with a timestamp.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class ValueAtTime {
   /// The value at the given time.
   double? value;

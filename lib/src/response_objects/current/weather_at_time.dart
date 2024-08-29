@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'weather_at_time.g.dart';
 
 /// Contains the temperature at a given time.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class WeatherAtTime {
   /// Timestamp of the data.
   DateTime? timestamp;

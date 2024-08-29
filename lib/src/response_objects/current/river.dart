@@ -11,7 +11,7 @@ part 'river.g.dart';
 ///
 /// Contains infos the water temperature, the flow and the height of the river,
 /// and clever descriptions of the current state.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class River {
   /// Display name of the measurement location. Same as [Today.name].
   ///

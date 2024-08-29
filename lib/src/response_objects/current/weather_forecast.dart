@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'weather_forecast.g.dart';
 
 /// Contains the weather forecast for a specific day.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class WeatherForecast {
   /// The day of the week.
   ///

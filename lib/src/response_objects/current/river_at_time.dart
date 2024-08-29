@@ -3,7 +3,7 @@ import 'package:aareguru_api/json_conversion.dart';
 part 'river_at_time.g.dart';
 
 /// Contains the flow and temperature data of a river at a given time.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class RiverAtTime {
   /// Timestamp of the data.
   DateTime? timestamp;

@@ -1,7 +1,5 @@
 import 'package:aareguru_api/json_conversion.dart';
-import 'package:aareguru_api/src/requests/current_request.dart';
-import 'package:aareguru_api/src/requests/today_request.dart';
-import 'package:aareguru_api/src/requests/widget_request.dart';
+import 'package:aareguru_api/requests.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'package:latlong2/latlong.dart';
 
@@ -13,7 +11,7 @@ part 'city.g.dart';
 
 /// Core infos about a city and the current Aare data.
 /// Usually in a list of cities.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class City {
   ///  Unique identifier of the city.
   ///

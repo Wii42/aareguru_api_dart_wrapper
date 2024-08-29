@@ -6,7 +6,7 @@ import 'city_widget.dart';
 part 'widget_data.g.dart';
 
 /// Data over all cities, optimized for widgets.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class WidgetData {
   /// Map with over all cities and their associated data.
   ///

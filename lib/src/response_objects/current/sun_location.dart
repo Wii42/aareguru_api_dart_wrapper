@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'sun_location.g.dart';
 
 /// Sunrise and sunset times for a location.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class SunLocation {
   /// Display name of the location.
   ///

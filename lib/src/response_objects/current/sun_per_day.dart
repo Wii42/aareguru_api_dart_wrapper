@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'sun_per_day.g.dart';
 
 /// Amount of sunshine on a given day.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class SunPerDay {
   /// The day of the week.
   ///

@@ -2,7 +2,7 @@ import 'package:aareguru_api/json_conversion.dart';
 
 part 'notification.g.dart';
 
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class Notification {
   DateTime? time;
   String? author;

@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'current_weather.g.dart';
 
 /// Contains the current weather data, like temperature and rainfall.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class CurrentWeather {
   /// The current air temperature in °C.
   ///

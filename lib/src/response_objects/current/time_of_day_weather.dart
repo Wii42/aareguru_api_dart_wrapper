@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'time_of_day_weather.g.dart';
 
 ///  /// Weather forecast for a portion of the day, e.g. morning, afternoon, evening.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class TimeOfDayWeather {
   /// Weather forecast as symbol, usually a letter.
   ///

@@ -4,7 +4,7 @@ import 'package:json_annotation/json_annotation.dart';
 part 'city_widget.g.dart';
 
 /// Representation of a city used in [WidgetData].
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class CityWidget {
   /// Unique identifier for the city.
   ///

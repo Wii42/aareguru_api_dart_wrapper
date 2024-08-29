@@ -7,7 +7,7 @@ import 'sun_per_day.dart';
 part 'sun.g.dart';
 
 /// Contains data about the sunshine duration now and in the future.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class Sun {
   /// Data for today.
   SunPerDay? today;

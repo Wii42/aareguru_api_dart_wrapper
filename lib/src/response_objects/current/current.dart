@@ -14,7 +14,7 @@ part 'current.g.dart';
 /// Maximal data for a given city, with current, past and predicted data.
 ///
 /// Contains data about the Aare, the weather, the sun and the swimming channel.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class Current {
   /// Current data of the Aare. For more details see [River].
   River? aare;

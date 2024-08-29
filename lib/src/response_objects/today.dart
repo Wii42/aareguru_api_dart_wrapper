@@ -6,7 +6,7 @@ part 'today.g.dart';
 /// Short overview of the Aare stats for a location.
 ///
 /// For all data, see [Current].
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class Today {
   /// Current temperature of the Aare in °C, rounded to one decimal place.
   ///

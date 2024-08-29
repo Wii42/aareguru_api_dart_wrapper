@@ -3,7 +3,7 @@ import 'package:aareguru_api/json_conversion.dart';
 part 'city_key.g.dart';
 
 /// Bundles the unique identifier and the display name of a city.
-@MyJsonSerializable()
+@CustomJsonSerializable()
 class CityKey {
   /// Unique identifier of the city.
   ///
