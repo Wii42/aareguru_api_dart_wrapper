@@ -1,5 +1,10 @@
+import 'package:aareguru_api/json_conversion.dart';
+
 import '../json_parser.dart';
 
+part 'notification.g.dart';
+
+@MyJsonSerializable()
 class Notification {
   DateTime? time;
   String? author;
@@ -12,14 +17,8 @@ class Notification {
   });
 
   /// Creates a [Notification] from a JSON object.
-  factory Notification.fromJson(Map<String, dynamic> json) {
-    JsonParser p = JsonParser();
-    return Notification(
-      time: p.parseDateTime(json['time']),
-      author: p.parseString(json['author']),
-      event: p.parseString(json['event']),
-    );
-  }
+  factory Notification.fromJson(Map<String, dynamic> json) =>
+      _$NotificationFromJson(json);
 
   @override
   String toString() {

@@ -1,8 +1,14 @@
+import 'package:aareguru_api/json_conversion.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 import '../json_parser.dart';
 import 'sun_location.dart';
 import 'sun_per_day.dart';
 
+part 'sun.g.dart';
+
 /// Contains data about the sunshine duration now and in the future.
+@MyJsonSerializable()
 class Sun {
   /// Data for today.
   SunPerDay? today;
@@ -13,6 +19,7 @@ class Sun {
   /// Sunrise and sunset times for different locations in the city.
   ///
   /// Original API field name: <code>sunlocations</code>
+  @JsonKey(name: 'sunlocations')
   List<SunLocation>? sunLocations;
 
   Sun({
@@ -22,16 +29,7 @@ class Sun {
   });
 
   /// Creates a [Sun] from a JSON object.
-  factory Sun.fromJson(Map<String, dynamic> json) {
-    JsonParser p = JsonParser();
-    return Sun(
-      today: p.parseObject(json['today'], (dynamic e) => SunPerDay.fromJson(e)),
-      forecast: p.parseList(
-          json['forecast'].values, (dynamic e) => SunPerDay.fromJson(e)),
-      sunLocations: p.parseList(
-          json['sunlocations'], (dynamic e) => SunLocation.fromJson(e)),
-    );
-  }
+  factory Sun.fromJson(Map<String, dynamic> json) => _$SunFromJson(json);
 
   @override
   String toString() {

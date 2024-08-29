@@ -1,3 +1,5 @@
+import 'package:aareguru_api/json_conversion.dart';
+
 import '../json_parser.dart';
 import 'scale_entry.dart';
 
@@ -90,9 +92,8 @@ class Scale<T extends ScaleEntry> {
 
   /// Creates a scale from a JSON list.
   static Scale fromJson(List<dynamic> json) {
-    JsonParser p = JsonParser();
     List<ScaleEntry>? entries =
-        p.parseList<ScaleEntry>(json, (v) => ScaleEntry.fromJson(v));
+        parseList<ScaleEntry>(json, (v) => ScaleEntry.fromJson(v));
     return Scale<ScaleEntry>(entries ?? []);
   }
 }

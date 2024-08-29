@@ -13,7 +13,7 @@ void main() {
     test('today', () => expect(today(), isNotNull));
     test('aareTemperature', () => expect(today().aareTemperature, 18.1));
     test('aarePreciceTemperature',
-        () => expect(today().aarePreciceTemperature, 18.08));
+        () => expect(today().aarePreciseTemperature, 18.08));
     test('text', () => expect(today().aareTemperatureText, "Rächt gut. Mit viu Wasser"));
     test('textShort', () => expect(today().aareTemperatureTextShort, "Mit viu Wasser"));
     test('time', () => expect(today().time, DateTime(2024, 8, 19, 23, 0, 0)));

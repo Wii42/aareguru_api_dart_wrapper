@@ -17,7 +17,7 @@ void main() {
 
   group('CityWidget', () {
     CityWidget cityWidget() =>
-        CityWidget.fromJson(mockJson['values']['thun'], 'thun');
+        CityWidget.fromJsonWithCity(mockJson['values']['thun'], 'thun');
     test('cityWidget', () => expect(cityWidget(), isNotNull));
     test('city', () => expect(cityWidget().city, 'thun'));
     test('timestamp',

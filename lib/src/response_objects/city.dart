@@ -1,15 +1,19 @@
+import 'package:aareguru_api/json_conversion.dart';
 import 'package:aareguru_api/src/requests/current_request.dart';
 import 'package:aareguru_api/src/requests/today_request.dart';
 import 'package:aareguru_api/src/requests/widget_request.dart';
+import 'package:json_annotation/json_annotation.dart';
 import 'package:latlong2/latlong.dart';
 
 import 'current/current.dart';
-import 'json_parser.dart';
 import 'today.dart';
 import 'widget_data.dart';
 
+part 'city.g.dart';
+
 /// Core infos about a city and the current Aare data.
 /// Usually in a list of cities.
+@MyJsonSerializable()
 class City {
   ///  Unique identifier of the city.
   ///
@@ -26,6 +30,7 @@ class City {
   /// Example: "Bern, Schönau"
   ///
   /// Original API field name: <code>longname</code>
+  @JsonKey(name: 'longname')
   String? longName;
 
   /// Coordinates of the city.
@@ -36,11 +41,13 @@ class City {
   /// Current temperature of the Aare in °C, rounded to one decimal place.
   ///
   /// Original API field name: <code>aare</code>
+  @JsonKey(name: 'aare')
   double? aareTemperature;
 
   /// Current temperature of the Aare in °C, not rounded precise.
   ///
   /// Api field name: <code>aare_prec</code>
+  @JsonKey(name: 'aare_prec')
   double? aarePreciseTemperature;
 
   /// Weather forecast as symbol.
@@ -49,16 +56,19 @@ class City {
   /// Example: "1"
   ///
   /// Original API field name: <code>sy</code>
+  @JsonKey(name: 'sy')
   String? weatherSymbol;
 
   /// Daily minimum air temperature in °C.
   ///
   /// Original API field name: <code>tn</code>
+  @JsonKey(name: 'tn')
   double? dailyMinAirTemperature;
 
   /// Daily maximum air temperature in °C.
   ///
   /// Original API field name: <code>tx</code>
+  @JsonKey(name: 'tx')
   double? dailyMaxAirTemperature;
 
   /// Aare temperature forecast flag. Currently always <code>false</code>.
@@ -100,25 +110,7 @@ class City {
   });
 
   /// Creates a City object from a JSON object.
-  factory City.fromJson(Map<String, dynamic> json) {
-    JsonParser p = JsonParser();
-    return City(
-      city: p.parseString(json['city']),
-      name: json['name'].toString(),
-      longName: json['longname'].toString(),
-      coordinates: p.parseLatLng(json['coordinates']),
-      aareTemperature: p.parseDouble(json['aare']),
-      aarePreciseTemperature: p.parseDouble(json['aare_prec']),
-      weatherSymbol: p.parseString(json['sy']),
-      dailyMinAirTemperature: p.parseDouble(json['tn']),
-      dailyMaxAirTemperature: p.parseDouble(json['tx']),
-      forecast: p.parseBool(json['forecast']),
-      time: p.parseDateTime(json['time']),
-      url: p.parseUri(json['url']),
-      today: p.parseUri(json['today']),
-      widget: p.parseUri(json['widget']),
-    );
-  }
+  factory City.fromJson(Map<String, dynamic> json) => _$CityFromJson(json);
 
   /// Creates a list of City objects from a JSON list.
   static List<City> fromJsonList(List<dynamic> json) {

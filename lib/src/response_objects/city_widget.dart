@@ -1,10 +1,17 @@
+import 'package:aareguru_api/json_conversion.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 import 'json_parser.dart';
 
+part 'city_widget.g.dart';
+
 /// Representation of a city used in [WidgetData].
+@MyJsonSerializable()
 class CityWidget {
   /// Unique identifier for the city.
   ///
   /// Example: 'bern'
+  @JsonKey(includeFromJson: false, includeToJson: false)
   String? city;
 
   /// Timestamp of the data.
@@ -15,11 +22,13 @@ class CityWidget {
   /// Example: '14:00'
   ///
   /// Original API field name: <code>timestring</code>
+  @JsonKey(name: 'timestring')
   String? timeString;
 
   /// Current temperature of the Aare in °C, rounded to one decimal place.
   ///
   /// Original API field name: <code>temperature</code>
+  @JsonKey(name: 'temperature')
   double? aareTemperature;
 
   /// Description of the water temperature.
@@ -27,6 +36,7 @@ class CityWidget {
   /// Example: "Gschider chli käfele"
   ///
   /// Original API field name: <code>temperature_text</code>
+  @JsonKey(name: 'temperature_text')
   String? aareTemperatureText;
 
   /// Short version (less than 15 characters) of the description of the water temperature.
@@ -34,6 +44,7 @@ class CityWidget {
   /// Example: "Gschider käfele"
   ///
   /// Original API field name: <code>temperature_text_short</code>
+  @JsonKey(name: 'temperature_text_short')
   String? aareTemperatureTextShort;
 
   /// Current flow of the Aare in m³/s.
@@ -44,6 +55,7 @@ class CityWidget {
   /// Example: "ganz gäbig"
   ///
   /// Original API field name: <code>flow_text</code>
+  @JsonKey(name: 'flow_text')
   String? flowText;
 
   /// Current danger level of the flow at this location, ranging from 1 to 5.
@@ -51,16 +63,19 @@ class CityWidget {
   /// 1 is without danger, from 2 on there is a danger.
   ///
   /// Original API field name: <code>flow_gefahrenstufe</code>
+  @JsonKey(name: 'flow_gefahrenstufe')
   int? flowDangerLevel;
 
   /// Forecasted water temperature in 2 hours in °C.
   ///
   /// Original API field name: <code>forecast2h</code>
+  @JsonKey(name: 'forecast2h')
   double? aareTemperatureForecast2h;
 
   /// Current air temperature in °C.
   ///
   /// Original API field name: <code>tt</code>
+  @JsonKey(name: 'tt')
   double? airTemperature;
 
   /// Total expected sunshine duration in the format 'hh:mm'.
@@ -68,6 +83,7 @@ class CityWidget {
   /// Example: '8:00'
   ///
   /// Original API field name: <code>suntotal</code>
+  @JsonKey(name: 'suntotal')
   String? sunTotal; // in API "suntotal"
 
   CityWidget({
@@ -86,22 +102,14 @@ class CityWidget {
   });
 
   /// Creates a [CityWidget] from a JSON object.
-  factory CityWidget.fromJson(Map<String, dynamic> json, String? city) {
-    JsonParser p = JsonParser();
-    return CityWidget(
-      city: city,
-      timestamp: p.parseDateTime(json['timestamp']),
-      timeString: p.parseString(json['timestring']),
-      aareTemperature: p.parseDouble(json['temperature']),
-      aareTemperatureText: p.parseString(json['temperature_text']),
-      aareTemperatureTextShort: p.parseString(json['temperature_text_short']),
-      flow: p.parseDouble(json['flow']),
-      flowText: p.parseString(json['flow_text']),
-      flowDangerLevel: p.parseInt(json['flow_gefahrenstufe']),
-      aareTemperatureForecast2h: double.tryParse(json['forecast2h'].toString()),
-      airTemperature: p.parseDouble(json['tt']),
-      sunTotal: p.parseString(json['suntotal']),
-    );
+  factory CityWidget.fromJson(Map<String, dynamic> json) =>
+      _$CityWidgetFromJson(json);
+
+  /// Creates a [CityWidget] from a JSON object with a given city.
+  factory CityWidget.fromJsonWithCity(Map<String, dynamic> json, String? city) {
+    CityWidget cityWidget = CityWidget.fromJson(json);
+    cityWidget.city = city;
+    return cityWidget;
   }
 
   @override

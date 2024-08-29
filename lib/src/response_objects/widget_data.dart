@@ -1,8 +1,13 @@
+import 'package:aareguru_api/json_conversion.dart';
+
 import 'city_key.dart';
 import 'city_widget.dart';
 import 'json_parser.dart';
 
+part 'widget_data.g.dart';
+
 /// Data over all cities, optimized for widgets.
+@MyJsonSerializable()
 class WidgetData {
   /// Map with over all cities and their associated data.
   ///
@@ -18,13 +23,8 @@ class WidgetData {
   });
 
   /// Creates a [WidgetData] from a JSON object.
-  factory WidgetData.fromJson(Map<String, dynamic> json) {
-    JsonParser p = JsonParser();
-    return WidgetData(
-      values: p.parseCityWidgetMap(json['values']),
-      cities: p.parseList(json['cities'], (dynamic e) => CityKey.fromJson(e)),
-    );
-  }
+  factory WidgetData.fromJson(Map<String, dynamic> json) =>
+      _$WidgetDataFromJson(json);
 
   @override
   String toString() {

@@ -1,20 +1,29 @@
+import 'package:aareguru_api/json_conversion.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 import '../json_parser.dart';
 
+part 'current_weather.g.dart';
+
 /// Contains the current weather data, like temperature and rainfall.
+@MyJsonSerializable()
 class CurrentWeather {
   /// The current air temperature in °C.
   ///
   /// Original API field name: <code>tt</code>
+  @JsonKey(name: 'tt')
   double? temperature;
 
   /// The current rainfall in mm/10min, rounded to integers.
   ///
   /// Original API field name: <code>rr</code>
+  @JsonKey(name: 'rr')
   int? rainfall;
 
   /// The current rainfall in mm/10min, rounded to one decimal place.
   ///
   /// Original API field name: <code>rrreal</code>
+  @JsonKey(name: 'rrreal')
   double? rainfallReal;
 
   /// Timestamp of the data.
@@ -25,6 +34,7 @@ class CurrentWeather {
   /// Example: '14:00'
   ///
   /// Original API field name: <code>timestring</code>
+  @JsonKey(name: 'timestring')
   String? timeString;
 
   CurrentWeather({
@@ -36,16 +46,8 @@ class CurrentWeather {
   });
 
   /// Creates a [CurrentWeather] from a JSON object.
-  factory CurrentWeather.fromJson(Map<String, dynamic> json) {
-    JsonParser p = JsonParser();
-    return CurrentWeather(
-      temperature: p.parseDouble(json['tt']),
-      rainfall: p.parseInt(json['rr']),
-      rainfallReal: p.parseDouble(json['rrreal']),
-      timestamp: p.parseDateTime(json['timestamp']),
-      timeString: p.parseString(json['timestring']),
-    );
-  }
+  factory CurrentWeather.fromJson(Map<String, dynamic> json) =>
+      _$CurrentWeatherFromJson(json);
 
   @override
   String toString() {

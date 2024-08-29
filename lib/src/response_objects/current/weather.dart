@@ -1,9 +1,12 @@
-import '../json_parser.dart';
+import 'package:aareguru_api/json_conversion.dart';
 import 'current_weather.dart';
 import 'weather_forecast.dart';
 import 'weather_today.dart';
 
+part 'weather.g.dart';
+
 /// Contains the current and forecast weather data.
+@MyJsonSerializable()
 class Weather {
   /// The current weather data.
   CurrentWeather? current;
@@ -21,17 +24,7 @@ class Weather {
   });
 
   /// Creates a [Weather] from a JSON object.
-  factory Weather.fromJson(Map<String, dynamic> json) {
-    JsonParser p = JsonParser();
-    return Weather(
-      current: p.parseObject(
-          json['current'], (dynamic e) => CurrentWeather.fromJson(e)),
-      today:
-          p.parseObject(json['today'], (dynamic e) => WeatherToday.fromJson(e)),
-      forecast: p.parseList(
-          json['forecast'], (dynamic e) => WeatherForecast.fromJson(e)),
-    );
-  }
+  factory Weather.fromJson(Map<String, dynamic> json) => _$WeatherFromJson(json);
 
   @override
   String toString() {

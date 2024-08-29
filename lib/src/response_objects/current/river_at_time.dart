@@ -1,6 +1,11 @@
+import 'package:aareguru_api/json_conversion.dart';
+
 import '../json_parser.dart';
 
+part 'river_at_time.g.dart';
+
 /// Contains the flow and temperature data of a river at a given time.
+@MyJsonSerializable()
 class RiverAtTime {
   /// Timestamp of the data.
   DateTime? timestamp;
@@ -18,14 +23,8 @@ class RiverAtTime {
   });
 
   /// Creates a [RiverAtTime] from a JSON object.
-  factory RiverAtTime.fromJson(Map<String, dynamic> json) {
-    JsonParser p = JsonParser();
-    return RiverAtTime(
-      timestamp: p.parseDateTime(json['timestamp']),
-      flow: p.parseDouble(json['flow']),
-      temperature: p.parseDouble(json['temperature']),
-    );
-  }
+  factory RiverAtTime.fromJson(Map<String, dynamic> json) =>
+      _$RiverAtTimeFromJson(json);
 
   /// Creates a list of [RiverAtTime] from a JSON list.
   static List<RiverAtTime> listFromJson(List<dynamic> json) {

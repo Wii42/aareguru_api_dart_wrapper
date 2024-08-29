@@ -1,6 +1,9 @@
-import 'json_parser.dart';
+import 'package:aareguru_api/json_conversion.dart';
+
+part 'city_key.g.dart';
 
 /// Bundles the unique identifier and the display name of a city.
+@MyJsonSerializable()
 class CityKey {
   /// Unique identifier of the city.
   ///
@@ -19,13 +22,8 @@ class CityKey {
   });
 
   /// Creates a [CityKey] from a JSON object.
-  factory CityKey.fromJson(Map<String, dynamic> json) {
-    JsonParser p = JsonParser();
-    return CityKey(
-      key: p.parseString(json['key']),
-      name: p.parseString(json['name']),
-    );
-  }
+  factory CityKey.fromJson(Map<String, dynamic> json) =>
+      _$CityKeyFromJson(json);
 
   /// Creates a list of [CityKey] from a JSON list.
   static List<CityKey> listFromJson(List<dynamic> json) {

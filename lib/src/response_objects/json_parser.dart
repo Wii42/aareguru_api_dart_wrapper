@@ -40,7 +40,7 @@ class JsonParser {
     if (value == null) {
       return null;
     }
-    return CityWidget.fromJson(value, city?.toString());
+    return CityWidget.fromJson(value);
   }
 
   Map<String, CityWidget?>? parseCityWidgetMap(dynamic values) {

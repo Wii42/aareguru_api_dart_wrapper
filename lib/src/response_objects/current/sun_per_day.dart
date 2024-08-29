@@ -1,6 +1,12 @@
+import 'package:aareguru_api/json_conversion.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 import '../json_parser.dart';
 
+part 'sun_per_day.g.dart';
+
 /// Amount of sunshine on a given day.
+@MyJsonSerializable()
 class SunPerDay {
   /// The day of the week.
   ///
@@ -12,6 +18,7 @@ class SunPerDay {
   /// Example: "Mo."
   ///
   /// Original API field name: <code>dayshort</code>
+  @JsonKey(name: 'dayshort')
   String? dayShort;
 
   /// Total expected sunshine duration in the format 'hh:mm'.
@@ -19,6 +26,7 @@ class SunPerDay {
   /// Example: '8:00'
   ///
   /// Original API field name: <code>suntotal</code>
+  @JsonKey(name: 'suntotal')
   String? sunTotal;
 
   /// The relative amount of sunshine compared to maximal possible time that day in %.
@@ -27,6 +35,7 @@ class SunPerDay {
   /// Example: 50
   ///
   /// Original API field name: <code>sunrelative</code>
+  @JsonKey(name: 'sunrelative')
   double? sunRelative;
 
   SunPerDay({
@@ -37,15 +46,8 @@ class SunPerDay {
   });
 
   /// Creates a [SunPerDay] from a JSON object.
-  factory SunPerDay.fromJson(Map<String, dynamic> json) {
-    JsonParser p = JsonParser();
-    return SunPerDay(
-      day: p.parseString(json['day']),
-      dayShort: p.parseString(json['dayshort']),
-      sunTotal: p.parseString(json['suntotal']),
-      sunRelative: p.parseDouble(json['sunrelative']),
-    );
-  }
+  factory SunPerDay.fromJson(Map<String, dynamic> json) =>
+      _$SunPerDayFromJson(json);
 
   /// Creates a list of [SunPerDay] from a JSON list.
   static List<SunPerDay> listFromJson(List<dynamic> json) {

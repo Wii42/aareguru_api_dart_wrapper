@@ -1,6 +1,12 @@
+import 'package:aareguru_api/json_conversion.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 import '../json_parser.dart';
 
+part 'sun_location.g.dart';
+
 /// Sunrise and sunset times for a location.
+@MyJsonSerializable()
 class SunLocation {
   /// Display name of the location.
   ///
@@ -15,6 +21,7 @@ class SunLocation {
   /// Example: "06:00"
   ///
   /// Original API field name: <code>sunriselocal</code>
+  @JsonKey(name: 'sunriselocal')
   String? sunriseLocal;
 
   /// Timestamp of the sunset.
@@ -25,11 +32,13 @@ class SunLocation {
   /// Example: "20:00"
   ///
   /// Original API field name: <code>sunsetlocal</code>
+  @JsonKey(name: 'sunsetlocal')
   String? sunsetLocal;
 
   /// Time left until the next sunset.
   ///
   /// Original API field name: <code>timeleft</code>
+  @JsonKey(name: 'timeleft')
   Duration? timeLeft;
 
   /// String representation of the time left until the next sunset.
@@ -37,6 +46,7 @@ class SunLocation {
   /// Example: "3:30:00
   ///
   /// Original API field name: <code>timeleftstring</code>"
+  @JsonKey(name: 'timeleftstring')
   String? timeLeftString;
 
   SunLocation({
@@ -50,18 +60,8 @@ class SunLocation {
   });
 
   /// Creates a [SunLocation] from a JSON object.
-  factory SunLocation.fromJson(Map<String, dynamic> json) {
-    JsonParser p = JsonParser();
-    return SunLocation(
-      name: p.parseString(json['name']),
-      sunrise: p.parseDateTime(json['sunrise']),
-      sunriseLocal: p.parseString(json['sunriselocal']),
-      sunset: p.parseDateTime(json['sunset']),
-      sunsetLocal: p.parseString(json['sunsetlocal']),
-      timeLeft: p.parseDuration(json['timeleft']),
-      timeLeftString: p.parseString(json['timeleftstring']),
-    );
-  }
+  factory SunLocation.fromJson(Map<String, dynamic> json) =>
+      _$SunLocationFromJson(json);
 
   /// Creates a list of [SunLocation] from a JSON object.
   static List<SunLocation> listFromJson(List<dynamic> json) {

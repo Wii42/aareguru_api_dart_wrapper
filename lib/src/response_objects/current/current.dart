@@ -1,3 +1,6 @@
+import 'package:aareguru_api/json_conversion.dart';
+import 'package:json_annotation/json_annotation.dart';
+
 import '../json_parser.dart';
 import 'notification.dart';
 import 'river.dart';
@@ -7,9 +10,12 @@ import 'swimming_channel.dart';
 import 'weather.dart';
 import 'weather_at_time.dart';
 
+part 'current.g.dart';
+
 /// Maximal data for a given city, with current, past and predicted data.
 ///
 /// Contains data about the Aare, the weather, the sun and the swimming channel.
+@MyJsonSerializable()
 class Current {
   /// Current data of the Aare. For more details see [River].
   River? aare;
@@ -17,6 +23,7 @@ class Current {
   /// Past flow and temperature data of the Aare. Usually for the last 48 hours.
   ///
   /// Original API field name: <code>aarepast</code>
+  @JsonKey(name: 'aarepast')
   List<RiverAtTime>? aarePast;
 
   /// Current weather data prognoses. For more details see [Weather].
@@ -25,6 +32,7 @@ class Current {
   /// Past air temperature data. Usually for the last 48 hours.
   ///
   /// Original API field name: <code>weatherpast</code>
+  @JsonKey(name: 'weatherpast')
   List<WeatherAtTime>? weatherPast;
 
   /// Current sun data and prognoses. For more details see [Sun].
@@ -46,23 +54,8 @@ class Current {
   });
 
   /// Creates a [Current] from a JSON object.
-  factory Current.fromJson(Map<String, dynamic> json) {
-    JsonParser p = JsonParser();
-    return Current(
-      aare: p.parseObject(json['aare'], (dynamic e) => River.fromJson(e)),
-      aarePast:
-          p.parseList(json['aarepast'], (dynamic e) => RiverAtTime.fromJson(e)),
-      weather:
-          p.parseObject(json['weather'], (dynamic e) => Weather.fromJson(e)),
-      weatherPast: p.parseList(
-          json['weatherpast'], (dynamic e) => WeatherAtTime.fromJson(e)),
-      sun: p.parseObject(json['sun'], (dynamic e) => Sun.fromJson(e)),
-      bueber: p.parseObject(
-          json['bueber'], (dynamic e) => SwimmingChannel.fromJson(e)),
-      notification: p.parseObject(
-          json['notification'], (dynamic e) => Notification.fromJson(e)),
-    );
-  }
+  factory Current.fromJson(Map<String, dynamic> json) =>
+      _$CurrentFromJson(json);
 
   @override
   String toString() {
