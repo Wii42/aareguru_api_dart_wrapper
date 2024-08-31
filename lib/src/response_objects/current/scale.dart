@@ -35,27 +35,32 @@ class Scale<T extends ScaleEntry> {
 
   /// Returns the [ScaleEntry] object in the range of which the given [value] lies.
   /// If no such entry exists, null is returned.
-  T? selectFittingScaleEntry(num value) {
-    T? entryBelow;
-    T? entryAbove;
-    for (T entry in _entries) {
+  T? selectFittingScaleEntry(num value) =>
+      selectFittingScaleEntryIndexed(value)?.$2;
+
+  /// Same as [selectFittingScaleEntry], but returns the index of the entry in the list as well.
+  (int, T)? selectFittingScaleEntryIndexed(num value) {
+    (int, T)? entryBelow;
+    (int, T)? entryAbove;
+    for ((int, T) indexedEntry in _entries.indexed) {
+      T entry = indexedEntry.$2;
       if (entry.value == value) {
-        return entry;
+        return indexedEntry;
       }
       if (entry.value == null) {
         continue;
       }
       if (entry.value! <= value) {
-        entryBelow = entry;
+        entryBelow = indexedEntry;
       } else {
-        entryAbove = entry;
+        entryAbove = indexedEntry;
         break;
       }
     }
-    if (entryAbove?.position == 'end') {
+    if (entryAbove?.$2.position == 'end') {
       return entryAbove;
     }
-    if (entryBelow?.position == 'start') {
+    if (entryBelow?.$2.position == 'start') {
       return entryBelow;
     }
     return null;
@@ -77,7 +82,8 @@ class Scale<T extends ScaleEntry> {
     assert(isScaleValid(), 'Scale is has overlapping entries');
   }
 
-  /// Checks if the scale has overlapping entries. Scale can still be valid if the overlapping entries have the same value.
+  /// Checks if the scale has overlapping entries.
+  /// Scale can still be valid if the overlapping entries have the same value.
   bool hasOverlappingPoints() {
     T? entryBefore;
     for (T entry in _entries) {
@@ -94,5 +100,10 @@ class Scale<T extends ScaleEntry> {
     List<ScaleEntry>? entries =
         parseList<ScaleEntry>(json, (v) => ScaleEntry.fromJson(v));
     return Scale<ScaleEntry>(entries ?? []);
+  }
+
+  @override
+  String toString() {
+    return 'Scale(entries: $_entries)';
   }
 }
