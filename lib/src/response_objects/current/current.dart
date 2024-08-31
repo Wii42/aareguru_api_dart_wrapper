@@ -58,6 +58,9 @@ class Current {
 
   @override
   String toString() {
-    return 'Current(aare: $aare, aarePast: $aarePast, weather: $weather, weatherPast: $weatherPast, sun: $sun, bueber: $bueber, notification: $notification)';
+    return 'Current('
+        'aare: $aare, aarePast: $aarePast, weather: $weather, '
+        'weatherPast: $weatherPast, sun: $sun, bueber: $bueber, '
+        'notification: $notification)';
   }
 }

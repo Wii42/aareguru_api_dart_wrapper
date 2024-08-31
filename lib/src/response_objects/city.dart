@@ -133,14 +133,14 @@ class City {
 
   @override
   String toString() {
-    return 'City{city: $city, name: $name, longName: $longName, '
+    return 'City('
+        'city: $city, name: $name, longName: $longName, '
         'coordinates: $coordinates, aareTemperature: $aareTemperature, '
         'aarePreciseTemperature: $aarePreciseTemperature, '
         'weatherSymbol: $weatherSymbol, '
-        'dailyMinimumAirTemperature: '
-        '$dailyMinAirTemperature, '
-        'dailyMaximumAirTemperature: $dailyMaxAirTemperature, '
+        'dailyMinAirTemperature: $dailyMinAirTemperature, '
+        'dailyMaxAirTemperature: $dailyMaxAirTemperature, '
         'forecast: $forecast, '
-        'time: $time, url: $url, today: $today, widget: $widget}';
+        'time: $time, url: $url, today: $today, widget: $widget)';
   }
 }

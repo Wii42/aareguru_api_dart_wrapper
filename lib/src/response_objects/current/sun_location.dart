@@ -68,6 +68,9 @@ class SunLocation {
 
   @override
   String toString() {
-    return 'SunLocation(name: $name, sunrise: $sunrise, suriseLocal: $sunriseLocal, sunset: $sunset, sunsetLocal: $sunsetLocal, timeLeft: $timeLeft, timeLeftString: $timeLeftString)';
+    return 'SunLocation('
+        'name: $name, sunrise: $sunrise, sunriseLocal: $sunriseLocal, '
+        'sunset: $sunset, sunsetLocal: $sunsetLocal, timeLeft: $timeLeft, '
+        'timeLeftString: $timeLeftString)';
   }
 }

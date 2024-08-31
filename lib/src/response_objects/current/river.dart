@@ -89,7 +89,7 @@ class River {
 
   /// Description of the forecasted water temperature in 2 hours.
   ///
-  /// Example: ""Blibt äuä öpe glich""
+  /// Example: "Blibt äuä öpe glich"
   ///
   /// Original API field name: <code>forecast2h_text</code>
   @JsonKey(name: 'forecast2h_text')
@@ -143,6 +143,16 @@ class River {
 
   @override
   String toString() {
-    return 'River{location: $location, locationLong: $locationLong, coordinates: $coordinates, forecast: $forecast, timestamp: $timestamp, timeString: $timeString, temperature: $temperature, temperaturePrecise: $temperaturePrecise, temperatureText: $temperatureText, temperatureTextShort: $temperatureTextShort, flow: $flow, flowText: $flowText, temperatureForecast2h: $temperatureForecast2h, temperatureForecast2hText: $temperatureForecast2hText, temperatureScale: $temperatureScale, flowScale: $flowScale, historicalTempMax: $historicalTempMax}';
+    return 'River('
+        'location: $location, locationLong: $locationLong, '
+        'coordinates: $coordinates, forecast: $forecast, timestamp: $timestamp, '
+        'timeString: $timeString, temperature: $temperature, '
+        'temperaturePrecise: $temperaturePrecise, '
+        'temperatureText: $temperatureText, '
+        'temperatureTextShort: $temperatureTextShort, flow: $flow, '
+        'flowText: $flowText, temperatureForecast2h: $temperatureForecast2h, '
+        'temperatureForecast2hText: $temperatureForecast2hText, '
+        'temperatureScale: $temperatureScale, flowScale: $flowScale, '
+        'historicalTempMax: $historicalTempMax)';
   }
 }

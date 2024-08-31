@@ -32,6 +32,7 @@ class Sun {
 
   @override
   String toString() {
-    return 'Sun(today: $today, forecast: $forecast, sunLocations: $sunLocations)';
+    return 'Sun('
+        'today: $today, forecast: $forecast, sunLocations: $sunLocations)';
   }
 }

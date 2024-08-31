@@ -31,6 +31,7 @@ class RiverAtTime {
 
   @override
   String toString() {
-    return 'RiverAtTime(timestamp: $timestamp, flow: $flow, temperature: $temperature)';
+    return 'RiverAtTime('
+        'timestamp: $timestamp, flow: $flow, temperature: $temperature)';
   }
 }

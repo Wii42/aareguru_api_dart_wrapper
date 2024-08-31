@@ -54,7 +54,9 @@ class SunPerDay {
 
   @override
   String toString() {
-    return 'SunPerDay(day: $day, dayShort: $dayShort, sunTotal: $sunTotal, sunRelative: $sunRelative)';
+    return 'SunPerDay('
+        'day: $day, dayShort: $dayShort, sunTotal: $sunTotal, '
+        'sunRelative: $sunRelative)';
   }
 
   /// The duration of the sunshine on this day.

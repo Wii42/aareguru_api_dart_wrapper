@@ -64,6 +64,9 @@ class TimeOfDayWeather {
 
   @override
   String toString() {
-    return 'TimeOfDayWeather(weatherSymbol: $symbolLetter, weatherText: $symbolText, weatherSymbol2: $symbol, temperature: $temperature, rainfall: $rainfall, rainfallRisk: $rainfallRisk)';
+    return 'TimeOfDayWeather('
+        'symbolLetter: $symbolLetter, symbolText: $symbolText, symbol: $symbol, '
+        'temperature: $temperature, rainfall: $rainfall, '
+        'rainfallRisk: $rainfallRisk)';
   }
 }

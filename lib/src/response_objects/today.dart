@@ -67,6 +67,10 @@ class Today {
 
   @override
   String toString() {
-    return 'Today{aareTemperature: $aareTemperature, aarePreciceTemperature: $aarePreciseTemperature, text: $aareTemperatureTextShort, textShort: $aareTemperatureTextShort, time: $time, name: $name, longName: $longName}';
+    return 'Today('
+        'aareTemperature: $aareTemperature, '
+        'aarePreciceTemperature: $aarePreciseTemperature, '
+        'text: $aareTemperatureTextShort, textShort: $aareTemperatureTextShort, '
+        'time: $time, name: $name, longName: $longName)';
   }
 }

@@ -43,6 +43,7 @@ class SwimmingChannel {
 
   @override
   String toString() {
-    return 'SwimmingChannel(state: $state, isOpen: $isOpen, source: $source, time: $time)';
+    return 'SwimmingChannel('
+        'state: $state, isOpen: $isOpen, source: $source, time: $time)';
   }
 }

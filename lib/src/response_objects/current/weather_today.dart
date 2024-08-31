@@ -38,6 +38,7 @@ class WeatherToday {
 
   @override
   String toString() {
-    return 'WeatherToday(morning: $morning, afternoon: $afternoon, evening: $evening)';
+    return 'WeatherToday('
+        'morning: $morning, afternoon: $afternoon, evening: $evening)';
   }
 }

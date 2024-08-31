@@ -49,6 +49,9 @@ class CurrentWeather {
 
   @override
   String toString() {
-    return 'CurrentWeather(currentTemperature: $temperature, rainfall: $rainfall, rainfallReal: $rainfallReal, timestamp: $timestamp, timeString: $timeString)';
+    return 'CurrentWeather('
+        'currentTemperature: $temperature, rainfall: $rainfall, '
+        'rainfallReal: $rainfallReal, timestamp: $timestamp, '
+        'timeString: $timeString)';
   }
 }

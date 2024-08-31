@@ -21,6 +21,6 @@ class ValueAtTime {
 
   @override
   String toString() {
-    return 'ValueAtTime(value: $value, time: $timestamp)';
+    return 'ValueAtTime(value: $value, timestamp: $timestamp)';
   }
 }

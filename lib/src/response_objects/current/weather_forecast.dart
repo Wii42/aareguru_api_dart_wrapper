@@ -19,7 +19,7 @@ class WeatherForecast {
   @JsonKey(name: 'dayshort')
   String? dayShort;
 
-  /// Timestamp of the data.
+  /// Date of the forecast.
   DateTime? timestamp;
 
   /// Weather forecast as symbol, usually a letter.
@@ -95,6 +95,10 @@ class WeatherForecast {
 
   @override
   String toString() {
-    return 'WeatherForecast(day: $day, dayShort: $dayShort, timestamp: $timestamp, symbol: $symbolLetter, symbolText: $symbolText, symbol2: $symbol, maxTemperature: $maxTemperature, minTemperature: $minTemperature, rainfall: $rainfall, rainfallRisk: $rainfallRisk)';
+    return 'WeatherForecast(day: $day, dayShort: $dayShort, '
+        'timestamp: $timestamp, symbolLetter: $symbolLetter, '
+        'symbolText: $symbolText, symbol: $symbol, '
+        'maxTemperature: $maxTemperature, minTemperature: $minTemperature, '
+        'rainfall: $rainfall, rainfallRisk: $rainfallRisk)';
   }
 }

@@ -112,6 +112,13 @@ class CityWidget {
 
   @override
   String toString() {
-    return 'CityWidget(city: $city, timestamp: $timestamp, timeString: $timeString, waterTemperature: $aareTemperature, waterTemperatureText: $aareTemperatureText, waterTemperatureTextShort: $aareTemperatureTextShort, flow: $flow, flowText: $flowText, flowDangerLevel: $flowDangerLevel, waterTemperatureForecast2h: $aareTemperatureForecast2h, airTemperature: $airTemperature, sunTotal: $sunTotal)';
+    return 'CityWidget('
+        'city: $city, timestamp: $timestamp, timeString: $timeString, '
+        'waterTemperature: $aareTemperature, '
+        'waterTemperatureText: $aareTemperatureText, '
+        'waterTemperatureTextShort: $aareTemperatureTextShort, flow: $flow, '
+        'flowText: $flowText, flowDangerLevel: $flowDangerLevel, '
+        'waterTemperatureForecast2h: $aareTemperatureForecast2h, '
+        'airTemperature: $airTemperature, sunTotal: $sunTotal)';
   }
 }
